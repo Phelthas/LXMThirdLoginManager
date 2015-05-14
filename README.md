@@ -28,12 +28,12 @@ QQSDK   V2.9.0
     [[LXMThirdLoginManager sharedManager] setupWithSinaWeiboAppKey:kSinaWeiboAppKey SinaWeiboRedirectURI:kSinaWeiboRedirectURI WeChatAppKey:kWeChatAppKey WeChatAppSecret:kWeChatAppSecret QQAppKey:kQQAppKey];      
     
 2，重写`- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation `方法，在其中加入    
-       return [[LXMThirdLoginManager sharedManager] handleOpenUrl:url];
+         return [[LXMThirdLoginManager sharedManager] handleOpenUrl:url];
 
 3，在工程的info处，设置URLTypes 为你在第三方平台所注册的appId   
 
 4，在需要登录的地方，调用   
-    - (void)requestLoginWithThirdType:(LXMThirdLoginType)thirdLoginType completeBlock:(LXMThirdLoginCompleteBlock)completeBlock;    
+      - (void)requestLoginWithThirdType:(LXMThirdLoginType)thirdLoginType completeBlock:(LXMThirdLoginCompleteBlock)completeBlock;    
     
     
     
