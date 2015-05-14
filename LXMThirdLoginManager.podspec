@@ -23,41 +23,16 @@ Pod::Spec.new do |s|
 		利用cocoaPods完成集成第三方登录的配置，就是添加各种依赖库和linkFlag，使集成第三方登录变成一两句代码的事。
                    DESC
 
-  s.homepage     = "http://EXAMPLE/LXMThirdLoginManager"
+  s.homepage     = "https://github.com/Phelthas/LXMThirdLoginManager"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
-
-
-  # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Licensing your code is important. See http://choosealicense.com for more info.
-  #  CocoaPods will detect a license file if there is a named LICENSE*
-  #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
-  #
 
   s.license      = "MIT"
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
-
-
-  # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Specify the authors of the library, with email addresses. Email addresses
-  #  of the authors are extracted from the SCM log. E.g. $ git log. CocoaPods also
-  #  accepts just a name if you'd rather not provide an email address.
-  #
-  #  Specify a social_media_url where others can refer to, for example a twitter
-  #  profile URL.
-  #
 
   s.author             = { "Phelthas" => "billthas@gmail.com" }
   # Or just: s.author    = "Phelthas"
   # s.authors            = { "Phelthas" => "" }
   # s.social_media_url   = "http://twitter.com/Phelthas"
-
-  # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  If this Pod runs only on iOS or OS X, then specify the platform and
-  #  the deployment target. You can optionally include the target after the platform.
-  #
 
   # s.platform     = :ios
   s.platform     = :ios, "5.0"
@@ -66,26 +41,10 @@ Pod::Spec.new do |s|
   # s.ios.deployment_target = "5.0"
   # s.osx.deployment_target = "10.7"
 
+  s.source       = { :git => "https://github.com/Phelthas/LXMThirdLoginManager.git", :tag => "1.0.0" }
 
-  # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Specify the location from where the source should be retrieved.
-  #  Supports git, hg, bzr, svn and HTTP.
-  #
-
-  s.source       = { :git => "http://EXAMPLE/LXMThirdLoginManager.git", :tag => "1.0.0" }
-
-
-  # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  CocoaPods is smart about how it includes source code. For source files
-  #  giving a folder will include any h, m, mm, c & cpp files. For header
-  #  files it will include any header in the folder.
-  #  Not including the public_header_files will make all headers public.
-  #
-
-  s.source_files  = "Classes", "Classes/**/*.{h,m}"
-  s.exclude_files = "Classes/Exclude"
+  s.source_files  = "LXMThirdLoginManager", "LXMThirdLoginManager/**/*.{h,m}"
+  #  s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
 
@@ -99,7 +58,7 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-  # s.resources = "Resources/*.png"
+  s.resources = "LXMThirdLoginManager/**/*.{bundle}"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
@@ -111,12 +70,12 @@ Pod::Spec.new do |s|
   #
 
   # s.framework  = "SomeFramework"
-  # s.frameworks = "Foundation", "UIKit", "CoreGraphics", "CoreText", "CoreTelephony", "Security", "ImageIO", "QuartzCore", "SystemConfiguration"
+  s.frameworks = "Foundation", "UIKit", "CoreGraphics", "CoreText", "CoreTelephony", "Security", "ImageIO", "QuartzCore", "SystemConfiguration"
 
   # s.library   = "iconv"
-  # s.libraries = "stdc++", "sqlite3", "iconv", "c++", "sqlite3.0", "z"
-
-
+  s.libraries = "stdc++", "sqlite3", "iconv", "c++", "sqlite3.0", "z"
+  s.vendored_libraries = "LXMThirdLoginManager/**/*.{a}"
+  s.vendored_frameworks = "LXMThirdLoginManager/**/*.{framework}"
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
   #  If your library depends on compiler flags you can set them in the xcconfig hash
