@@ -17,6 +17,11 @@ DerivedData
 *.ipa
 *.xcuserstate
 
+Demo/LXMThirdLoginManagerDemo/Pods 
+Demo/LXMThirdLoginManagerDemo/Podfile.lock 
+Demo/LXMThirdLoginManagerDemo/LXMThirdLoginManagerDemo.xcworkspace 
+
+
 # CocoaPods
 #
 # We recommend against adding the Pods directory to your .gitignore. However
