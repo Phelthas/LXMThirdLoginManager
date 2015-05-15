@@ -38,6 +38,8 @@ typedef void(^LXMThirdLoginCompleteBlock)(LXMThirdLoginResult *thirdLoginResult)
 
 + (instancetype)sharedManager;
 
++ (BOOL)isAppInstalled:(LXMThirdLoginType)type;
+
 - (void)setupWithSinaWeiboAppKey:(NSString *)sinaWeiboAppKey SinaWeiboRedirectURI:(NSString *)sinaWeiboRedirectURI WeChatAppKey:(NSString *)weChatAppKey WeChatAppSecret:(NSString *)weChatAppSecret QQAppKey:(NSString *)qqAppKey;
 
 

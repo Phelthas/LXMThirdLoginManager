@@ -7,7 +7,7 @@
 //
 
 #import "LXMQQHelper.h"
-#import <TencentOpenAPI/TencentOAuth.h>
+#import <TencentOAuth.h>
 #import "LXMThirdLoginManager.h"
 #import "LXMThirdLoginResult.h"
 
@@ -34,7 +34,9 @@ static TencentOAuth *tencentOAuth;
     return [TencentOAuth HandleOpenURL:url];
 }
 
-
++ (BOOL)isAppInstalled {
+    return [TencentOAuth iphoneQQInstalled];
+}
 
 #pragma mark - TencentLoginDelegate
 

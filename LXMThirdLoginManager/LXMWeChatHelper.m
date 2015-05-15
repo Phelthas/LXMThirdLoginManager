@@ -35,6 +35,10 @@
    return [WXApi handleOpenURL:url delegate:(id<WXApiDelegate>)self];
 }
 
++ (BOOL)isAppInstalled {
+    return [WXApi isWXAppInstalled];
+}
+
 #pragma mark - WXApi
 
 + (void)requestTokenWithCode:(NSString *)code completedBlock:(LXMThirdLoginCompleteBlock)completedBlock {

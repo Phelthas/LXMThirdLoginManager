@@ -16,4 +16,6 @@
 
 + (BOOL)handleOpenUrl:(NSURL *)url;
 
++ (BOOL)isAppInstalled;
+
 @end

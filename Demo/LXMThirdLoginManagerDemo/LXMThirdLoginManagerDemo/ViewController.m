@@ -40,6 +40,11 @@
 }
 
 - (IBAction)handleWeiXinButtonTapped:(id)sender {
+    if (![LXMThirdLoginManager isAppInstalled:LXMThirdLoginTypeWeChat]) {
+        //一般来说这个是用来判断这个第三方登录的按钮是否应该显示出来的
+        return;
+    }
+    
     [LXMThirdLoginManager sharedManager].shouldRequestUserInfo = YES;
     [[LXMThirdLoginManager sharedManager] requestLoginWithThirdType:LXMThirdLoginTypeWeChat completeBlock:^(LXMThirdLoginResult *thirdLoginResult) {
         if (thirdLoginResult && thirdLoginResult.thirdLoginState == 0) {
@@ -52,6 +57,11 @@
 }
 
 - (IBAction)handleQQButtonTapped:(id)sender {
+    if (![LXMThirdLoginManager isAppInstalled:LXMThirdLoginTypeQQ]) {
+        //一般来说这个是用来判断这个第三方登录的按钮是否应该显示出来的
+        return;
+    }
+    
     [LXMThirdLoginManager sharedManager].shouldRequestUserInfo = YES;
     [[LXMThirdLoginManager sharedManager] requestLoginWithThirdType:LXMThirdLoginTypeQQ completeBlock:^(LXMThirdLoginResult *thirdLoginResult) {
         if (thirdLoginResult && thirdLoginResult.thirdLoginState == 0) {

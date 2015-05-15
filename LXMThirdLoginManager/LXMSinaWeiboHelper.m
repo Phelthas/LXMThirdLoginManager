@@ -32,6 +32,10 @@
     return [WeiboSDK handleOpenURL:url delegate:(id<WeiboSDKDelegate>)self];
 }
 
++ (BOOL)isAppInstalled {
+    return [WeiboSDK isWeiboAppInstalled];
+}
+
 #pragma mark - WeiboAPI
 
 + (void)requestUserInfoWithLoginResult:(LXMThirdLoginResult *)result completedBlock:(LXMThirdLoginCompleteBlock)completedBlock {
