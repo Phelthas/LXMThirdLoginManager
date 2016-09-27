@@ -1,0 +1,10 @@
+PODS:
+  - LXMThirdLoginManager (1.0.0)
+
+DEPENDENCIES:
+  - LXMThirdLoginManager (= 1.0.0)
+
+SPEC CHECKSUMS:
+  LXMThirdLoginManager: 208ab85f9553a9b18b20073db0913d228c1c96ec
+
+COCOAPODS: 0.39.0
