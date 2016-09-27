@@ -10,6 +10,57 @@
 	<string>46</string>
 	<key>objects</key>
 	<dict>
+		<key>01399657D371A30F975FBF16</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-LXMThirdLoginManagerDemo/Pods-LXMThirdLoginManagerDemo-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>36C1460A3B1E666A88F965E5</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>D4D32651F38936755577FB3F</string>
+				<string>CEF78854F3297DF74A839B91</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>43924AC70C6861436A504EA9</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>B6E61B0B33C3E83625BA3204</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>43B431371B043FA500D38D2D</key>
 		<dict>
 			<key>children</key>
@@ -17,8 +68,8 @@
 				<string>43B431421B043FA500D38D2D</string>
 				<string>43B4315C1B043FA500D38D2D</string>
 				<string>43B431411B043FA500D38D2D</string>
-				<string>81C26CB98E3B9931D38A44B1</string>
-				<string>CE97BE781F71078F50A72B29</string>
+				<string>36C1460A3B1E666A88F965E5</string>
+				<string>43924AC70C6861436A504EA9</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -115,7 +166,7 @@
 			<string>2147483647</string>
 			<key>files</key>
 			<array>
-				<string>8E77BCCE124F7E64FA1CE47F</string>
+				<string>6234E63BD9E3301BE4FF68DA</string>
 			</array>
 			<key>isa</key>
 			<string>PBXFrameworksBuildPhase</string>
@@ -143,12 +194,12 @@
 			<string>43B431631B043FA500D38D2D</string>
 			<key>buildPhases</key>
 			<array>
-				<string>F25F2F802033B36F45D62E7A</string>
+				<string>FD06674E9122BD60F3ECAC78</string>
 				<string>43B4313C1B043FA500D38D2D</string>
 				<string>43B4313D1B043FA500D38D2D</string>
 				<string>43B4313E1B043FA500D38D2D</string>
-				<string>E309C5DC0263F35575B7B00B</string>
-				<string>82A9542A3F3ACBCD5D56DD6D</string>
+				<string>67FF02EECD675CA3384A1E67</string>
+				<string>01399657D371A30F975FBF16</string>
 			</array>
 			<key>buildRules</key>
 			<array/>
@@ -720,7 +771,7 @@
 		<key>43B431641B043FA500D38D2D</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>9B6A85D18D9C6985D83096C5</string>
+			<string>D4D32651F38936755577FB3F</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
@@ -746,7 +797,7 @@
 		<key>43B431651B043FA500D38D2D</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>C8BF030ABB38C77AADBEDEAE</string>
+			<string>CEF78854F3297DF74A839B91</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
@@ -838,21 +889,14 @@
 			<key>name</key>
 			<string>Release</string>
 		</dict>
-		<key>81C26CB98E3B9931D38A44B1</key>
+		<key>6234E63BD9E3301BE4FF68DA</key>
 		<dict>
-			<key>children</key>
-			<array>
-				<string>9B6A85D18D9C6985D83096C5</string>
-				<string>C8BF030ABB38C77AADBEDEAE</string>
-			</array>
+			<key>fileRef</key>
+			<string>B6E61B0B33C3E83625BA3204</string>
 			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
 		</dict>
-		<key>82A9542A3F3ACBCD5D56DD6D</key>
+		<key>67FF02EECD675CA3384A1E67</key>
 		<dict>
 			<key>buildActionMask</key>
 			<string>2147483647</string>
@@ -863,7 +907,7 @@
 			<key>isa</key>
 			<string>PBXShellScriptBuildPhase</string>
 			<key>name</key>
-			<string>Embed Pods Frameworks</string>
+			<string>[CP] Embed Pods Frameworks</string>
 			<key>outputPaths</key>
 			<array/>
 			<key>runOnlyForDeploymentPostprocessing</key>
@@ -871,12 +915,12 @@
 			<key>shellPath</key>
 			<string>/bin/sh</string>
 			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh"
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-LXMThirdLoginManagerDemo/Pods-LXMThirdLoginManagerDemo-frameworks.sh"
 </string>
 			<key>showEnvVarsInLog</key>
 			<string>0</string>
 		</dict>
-		<key>85352BAE1BECFE76F0BA2BDC</key>
+		<key>B6E61B0B33C3E83625BA3204</key>
 		<dict>
 			<key>explicitFileType</key>
 			<string>archive.ar</string>
@@ -885,18 +929,11 @@
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>path</key>
-			<string>libPods.a</string>
+			<string>libPods-LXMThirdLoginManagerDemo.a</string>
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
-		<key>8E77BCCE124F7E64FA1CE47F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>85352BAE1BECFE76F0BA2BDC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>9B6A85D18D9C6985D83096C5</key>
+		<key>CEF78854F3297DF74A839B91</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -905,13 +942,13 @@
 			<key>lastKnownFileType</key>
 			<string>text.xcconfig</string>
 			<key>name</key>
-			<string>Pods.debug.xcconfig</string>
+			<string>Pods-LXMThirdLoginManagerDemo.release.xcconfig</string>
 			<key>path</key>
-			<string>Pods/Target Support Files/Pods/Pods.debug.xcconfig</string>
+			<string>Pods/Target Support Files/Pods-LXMThirdLoginManagerDemo/Pods-LXMThirdLoginManagerDemo.release.xcconfig</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>C8BF030ABB38C77AADBEDEAE</key>
+		<key>D4D32651F38936755577FB3F</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -920,26 +957,13 @@
 			<key>lastKnownFileType</key>
 			<string>text.xcconfig</string>
 			<key>name</key>
-			<string>Pods.release.xcconfig</string>
+			<string>Pods-LXMThirdLoginManagerDemo.debug.xcconfig</string>
 			<key>path</key>
-			<string>Pods/Target Support Files/Pods/Pods.release.xcconfig</string>
+			<string>Pods/Target Support Files/Pods-LXMThirdLoginManagerDemo/Pods-LXMThirdLoginManagerDemo.debug.xcconfig</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>CE97BE781F71078F50A72B29</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>85352BAE1BECFE76F0BA2BDC</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E309C5DC0263F35575B7B00B</key>
+		<key>FD06674E9122BD60F3ECAC78</key>
 		<dict>
 			<key>buildActionMask</key>
 			<string>2147483647</string>
@@ -950,31 +974,7 @@
 			<key>isa</key>
 			<string>PBXShellScriptBuildPhase</string>
 			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>F25F2F802033B36F45D62E7A</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
+			<string>[CP] Check Pods Manifest.lock</string>
 			<key>outputPaths</key>
 			<array/>
 			<key>runOnlyForDeploymentPostprocessing</key>

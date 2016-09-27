@@ -1,5 +1,5 @@
 //
-//  LXMQQHelper.h
+//  LXMSinaWeiboHelper.h
 //  LXMThirdLoginManagerDemo
 //
 //  Created by luxiaoming on 15/5/11.
@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LXMQQHelper : NSObject
+@interface LXMSinaWeiboHelper : NSObject
 
 + (void)setupThirdLogin;
 
 + (void)requestLogin;
 
 + (BOOL)handleOpenUrl:(NSURL *)url;
+
++ (BOOL)isAppInstalled;
 
 @end

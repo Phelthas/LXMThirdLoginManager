@@ -94,6 +94,25 @@
     }
 }
 
+#pragma mark - 检查是否安装
+
++ (BOOL)isAppInstalled:(LXMThirdLoginType)type {
+    switch (type) {
+        case LXMThirdLoginTypeSinaWeibo:
+            return [LXMSinaWeiboHelper isAppInstalled];
+            break;
+        case LXMThirdLoginTypeWeChat:
+            return [LXMWeChatHelper isAppInstalled];
+            break;
+        case LXMThirdLoginTypeQQ:
+            return [LXMQQHelper isAppInstalled];
+            break;
+        default:
+            return NO;
+            break;
+    }
+}
+
 #pragma mark - network
 
 + (void)simpleGet:(NSString *)url completedBlock:(void(^)(id response, NSError *error))completedBlcok {

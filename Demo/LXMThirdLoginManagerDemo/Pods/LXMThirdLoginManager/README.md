@@ -1,2 +1,0 @@
-# LXMThirdLoginManager
-LXMThirdLoginManager

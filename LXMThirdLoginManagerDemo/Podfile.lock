@@ -1,0 +1,12 @@
+PODS:
+  - LXMThirdLoginManager (1.1.0)
+
+DEPENDENCIES:
+  - LXMThirdLoginManager (= 1.1.0)
+
+SPEC CHECKSUMS:
+  LXMThirdLoginManager: bbb91b0afcaa45d8bc64b27aa6694a046b9f6810
+
+PODFILE CHECKSUM: a5c1cc3cab0dd282fbd224979e719ffee17e1b34
+
+COCOAPODS: 1.0.1
