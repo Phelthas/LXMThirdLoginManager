@@ -10,7 +10,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   LXMThirdLoginManager:
-    :commit: 8413bdee35f3e7fbb73577d4a821c0c3b77d6e62
+    :commit: 6bcb72e02844b2ce51ee5b21c8137c7610583e4b
     :git: https://github.com/Phelthas/LXMThirdLoginManager
 
 SPEC CHECKSUMS:
