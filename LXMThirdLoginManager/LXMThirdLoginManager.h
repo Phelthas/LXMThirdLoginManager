@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+/*
+ 当前SDK版本：
+ 微博3.1.4
+ 微信1.7.3
+ QQ3.1.0
+ */
+
 
 typedef NS_ENUM(NSInteger, LXMThirdLoginType) {
     LXMThirdLoginTypeSinaWeibo = 0,
