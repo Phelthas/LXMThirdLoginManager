@@ -8,6 +8,7 @@
 
 #import "LXMQQHelper.h"
 #import <TencentOAuth.h>
+#import <TencentApiInterface.h>
 #import "LXMThirdLoginManager.h"
 #import "LXMThirdLoginResult.h"
 
