@@ -18,12 +18,11 @@
 
 static TencentOAuth *tencentOAuth;
 
-@implementation LXMQQHelper
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wprotocol"
 
-
+@implementation LXMQQHelper
 
 + (void)setupThirdLogin {
     tencentOAuth = [[TencentOAuth alloc] initWithAppId:[LXMThirdLoginManager sharedManager].kQQAppKey andDelegate:(id<TencentSessionDelegate>)self];
@@ -120,6 +119,7 @@ static TencentOAuth *tencentOAuth;
 }
 
 
-#pragma clang diagnostic pop
+
 
 @end
+#pragma clang diagnostic pop
