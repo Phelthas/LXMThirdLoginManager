@@ -1,1 +1,1 @@
-../../../LXMThirdLoginManager/LXMThirdLoginManager/WeChatSDK/WeChatSDK_1.5/WXApi.h
+../../../LXMThirdLoginManager/LXMThirdLoginManager/WeChatSDK/WeChatSDK_1.7.3/WXApi.h

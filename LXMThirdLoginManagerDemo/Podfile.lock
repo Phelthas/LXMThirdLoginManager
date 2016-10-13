@@ -2,11 +2,20 @@ PODS:
   - LXMThirdLoginManager (1.1.0)
 
 DEPENDENCIES:
-  - LXMThirdLoginManager (= 1.1.0)
+  - LXMThirdLoginManager (from `https://github.com/Phelthas/LXMThirdLoginManager`)
+
+EXTERNAL SOURCES:
+  LXMThirdLoginManager:
+    :git: https://github.com/Phelthas/LXMThirdLoginManager
+
+CHECKOUT OPTIONS:
+  LXMThirdLoginManager:
+    :commit: 8413bdee35f3e7fbb73577d4a821c0c3b77d6e62
+    :git: https://github.com/Phelthas/LXMThirdLoginManager
 
 SPEC CHECKSUMS:
-  LXMThirdLoginManager: bbb91b0afcaa45d8bc64b27aa6694a046b9f6810
+  LXMThirdLoginManager: fc7f6db286e86f551e3f47459d8f5bb39c9e2954
 
-PODFILE CHECKSUM: a5c1cc3cab0dd282fbd224979e719ffee17e1b34
+PODFILE CHECKSUM: 155434112d862ff9462e78d2465566ae19e4557e
 
 COCOAPODS: 1.0.1

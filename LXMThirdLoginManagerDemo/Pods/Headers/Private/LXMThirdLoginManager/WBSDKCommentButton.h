@@ -1,1 +1,1 @@
-../../../LXMThirdLoginManager/LXMThirdLoginManager/SinaWeiboSDK/libWeiboSDK/WBSDKCommentButton.h
+../../../LXMThirdLoginManager/LXMThirdLoginManager/SinaWeiboSDK/libWeiboSDK3.1.4/WBSDKCommentButton.h

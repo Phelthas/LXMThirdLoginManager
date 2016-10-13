@@ -1,1 +1,1 @@
-../../../../LXMThirdLoginManager/LXMThirdLoginManager/QQSDK/QQ_SDK_V2.9/TencentOpenAPI.framework/Headers/QQApiInterfaceObject.h
+../../../../LXMThirdLoginManager/LXMThirdLoginManager/QQSDK/QQ_SDK_3.1.0/TencentOpenAPI.framework/Headers/QQApiInterfaceObject.h

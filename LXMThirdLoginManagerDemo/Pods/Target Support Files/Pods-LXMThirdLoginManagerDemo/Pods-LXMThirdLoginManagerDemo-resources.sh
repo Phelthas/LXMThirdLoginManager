@@ -80,12 +80,12 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_resource "LXMThirdLoginManager/LXMThirdLoginManager/QQSDK/QQ_SDK_V2.9/TencentOpenApi_IOS_Bundle.bundle"
-  install_resource "LXMThirdLoginManager/LXMThirdLoginManager/SinaWeiboSDK/libWeiboSDK/WeiboSDK.bundle"
+  install_resource "LXMThirdLoginManager/LXMThirdLoginManager/QQSDK/QQ_SDK_3.1.0/TencentOpenApi_IOS_Bundle.bundle"
+  install_resource "LXMThirdLoginManager/LXMThirdLoginManager/SinaWeiboSDK/libWeiboSDK3.1.4/WeiboSDK.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_resource "LXMThirdLoginManager/LXMThirdLoginManager/QQSDK/QQ_SDK_V2.9/TencentOpenApi_IOS_Bundle.bundle"
-  install_resource "LXMThirdLoginManager/LXMThirdLoginManager/SinaWeiboSDK/libWeiboSDK/WeiboSDK.bundle"
+  install_resource "LXMThirdLoginManager/LXMThirdLoginManager/QQSDK/QQ_SDK_3.1.0/TencentOpenApi_IOS_Bundle.bundle"
+  install_resource "LXMThirdLoginManager/LXMThirdLoginManager/SinaWeiboSDK/libWeiboSDK3.1.4/WeiboSDK.bundle"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
