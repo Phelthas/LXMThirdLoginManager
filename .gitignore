@@ -17,9 +17,21 @@ DerivedData
 *.ipa
 *.xcuserstate
 
-Demo/LXMThirdLoginManagerDemo/Pods 
-Demo/LXMThirdLoginManagerDemo/Podfile.lock 
-Demo/LXMThirdLoginManagerDemo/LXMThirdLoginManagerDemo.xcworkspace 
+Pods/
+Podfile.lock
+*.xcworkspace/
+*.xcodeproj/xcuserdata/
+### Objective-C ###
+# OS X
+.DS_Store
+
+# svn
+.svn/
+
+
+LXMThirdLoginManagerDemo/Pods 
+LXMThirdLoginManagerDemo/Podfile.lock 
+LXMThirdLoginManagerDemo/LXMThirdLoginManagerDemo.xcworkspace 
 
 
 # CocoaPods
