@@ -433,6 +433,7 @@
 				CODE_SIGN_IDENTITY = "iOS Development: Gaoyi 林 (EZB9C9QZG8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 993SNGFP2R;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = LXMThirdLoginManagerDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -450,6 +451,7 @@
 				CODE_SIGN_IDENTITY = "iOS Development: Gaoyi 林 (EZB9C9QZG8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 993SNGFP2R;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = LXMThirdLoginManagerDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
