@@ -5,9 +5,9 @@ LXMThirdLoginManager 是用来一键集成第三方登录的，目前支持新�
 LXMThirdLoginManager使用cocoapods完成第三方SDK对各种依赖库的配置，封装登录方法和返回结果，并提供是否去调用第三方API去获取userInfo的属性，所以用的时候只需要两行代码就可以完成集成    
 
 目前使用SDK：    
-新浪微博SDK V3.0   
+新浪微博SDK V3.1.4  
 QQSDK   V2.9.0    
-微信SDK V1.5
+微信SDK V1.7.3
 
 注意：   
 1，demo中的工程需要 pod install之后才能运行，     
@@ -19,7 +19,7 @@ QQSDK   V2.9.0
 ## Install  
 1, add the LXMThirdLoginManager pod to your Podfile    
 
-    pod 'LXMThirdLoginManager', '~> 1.0.0'   
+    pod 'LXMThirdLoginManager', '~> 1.2.0'   
     
 2, run ` pod install `      
 
