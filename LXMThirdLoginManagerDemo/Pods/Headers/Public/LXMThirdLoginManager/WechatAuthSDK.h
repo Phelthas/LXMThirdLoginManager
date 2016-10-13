@@ -1,1 +1,0 @@
-../../../LXMThirdLoginManager/LXMThirdLoginManager/WeChatSDK/WeChatSDK_1.7.3/WechatAuthSDK.h
