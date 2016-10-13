@@ -31,10 +31,10 @@
 - (IBAction)handleWeiboButtonTapped:(UIButton *)sender {
     [[LXMThirdLoginManager sharedManager] requestLoginWithThirdType:LXMThirdLoginTypeSinaWeibo completeBlock:^(LXMThirdLoginResult *thirdLoginResult) {
         if (thirdLoginResult && thirdLoginResult.thirdLoginState == 0) {
-            NSLog(@"thirdLoginResult is %@", thirdLoginResult);
+            NSLog(@"thirdLoginResult is %@ \n name:%@ \n avatar:%@", thirdLoginResult, thirdLoginResult.userName, thirdLoginResult.avatarUrl);
             
         } else {
-            
+            NSLog(@"error_code: %@, error_message: %@", @(thirdLoginResult.thirdLoginState), thirdLoginResult.message);
         }
     }];
 }
@@ -48,10 +48,9 @@
     [LXMThirdLoginManager sharedManager].shouldRequestUserInfo = YES;
     [[LXMThirdLoginManager sharedManager] requestLoginWithThirdType:LXMThirdLoginTypeWeChat completeBlock:^(LXMThirdLoginResult *thirdLoginResult) {
         if (thirdLoginResult && thirdLoginResult.thirdLoginState == 0) {
-            NSLog(@"thirdLoginResult is %@", thirdLoginResult);
-            
+            NSLog(@"thirdLoginResult is %@ \n name:%@ \n avatar:%@", thirdLoginResult, thirdLoginResult.userName, thirdLoginResult.avatarUrl);
         } else {
-            
+            NSLog(@"error_code: %@, error_message: %@", @(thirdLoginResult.thirdLoginState), thirdLoginResult.message);
         }
     }];
 }
@@ -65,10 +64,10 @@
     [LXMThirdLoginManager sharedManager].shouldRequestUserInfo = YES;
     [[LXMThirdLoginManager sharedManager] requestLoginWithThirdType:LXMThirdLoginTypeQQ completeBlock:^(LXMThirdLoginResult *thirdLoginResult) {
         if (thirdLoginResult && thirdLoginResult.thirdLoginState == 0) {
-            NSLog(@"thirdLoginResult is %@", thirdLoginResult);
+            NSLog(@"thirdLoginResult is %@ \n name:%@ \n avatar:%@", thirdLoginResult, thirdLoginResult.userName, thirdLoginResult.avatarUrl);
             
         } else {
-            
+            NSLog(@"error_code: %@, error_message: %@", @(thirdLoginResult.thirdLoginState), thirdLoginResult.message);
         }
     }];
 }
