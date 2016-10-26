@@ -18,46 +18,43 @@
 
 static TencentOAuth *tencentOAuth;
 
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wprotocol"
-
 @implementation LXMQQHelper
 
-+ (void)setupThirdLogin {
+- (void)setupThirdKey {
     tencentOAuth = [[TencentOAuth alloc] initWithAppId:[LXMThirdLoginManager sharedManager].kQQAppKey andDelegate:(id<TencentSessionDelegate>)self];
 }
 
-+ (void)requestLogin {
+- (void)requestLogin {
     NSArray *permissions = @[kOPEN_PERMISSION_GET_INFO,
                              kOPEN_PERMISSION_GET_USER_INFO,
                              kOPEN_PERMISSION_GET_SIMPLE_USER_INFO];
     [tencentOAuth authorize:permissions inSafari:NO];
 }
 
-+ (BOOL)handleOpenUrl:(NSURL *)url {
+- (BOOL)handleOpenUrl:(NSURL *)url {
     return [TencentOAuth HandleOpenURL:url];
 }
 
-+ (BOOL)isAppInstalled {
+- (BOOL)isAppInstalled {
     return [TencentOAuth iphoneQQInstalled];
 }
 
+
 #pragma mark - TencentLoginDelegate
 
-+ (void)tencentDidLogin {
+- (void)tencentDidLogin {
     [self createThirdLoginResult];
 }
 
-+ (void)tencentDidNotLogin:(BOOL)cancelled {
+- (void)tencentDidNotLogin:(BOOL)cancelled {
     [self createThirdLoginResult];
 }
 
-+ (void)tencentDidNotNetWork {
+- (void)tencentDidNotNetWork {
     [self createThirdLoginResult];
 }
 
-+ (void)getUserInfoResponse:(APIResponse*) response {
+- (void)getUserInfoResponse:(APIResponse*) response {
     if ([LXMThirdLoginManager sharedManager].shouldRequestUserInfo) {
         if (response.detailRetCode == 0 && response.retCode == 0) {
             LXMThirdLoginResult *loginResult = [[LXMThirdLoginResult alloc] init];
@@ -94,7 +91,7 @@ static TencentOAuth *tencentOAuth;
 
 #pragma mark - privateMethod
 
-+ (void)createThirdLoginResult {
+- (void)createThirdLoginResult {
     if (tencentOAuth.accessToken && tencentOAuth.accessToken.length > 0) {
         LXMThirdLoginResult *loginResult = [[LXMThirdLoginResult alloc] init];
         loginResult.accessToken = tencentOAuth.accessToken;
@@ -122,4 +119,7 @@ static TencentOAuth *tencentOAuth;
 
 
 @end
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wprotocol"
 #pragma clang diagnostic pop

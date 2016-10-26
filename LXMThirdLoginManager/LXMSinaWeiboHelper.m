@@ -9,17 +9,19 @@
 #import "LXMSinaWeiboHelper.h"
 #import "WeiboSDK.h"
 #import "LXMThirdLoginManager.h"
-#import "LXMThirdLoginResult.h"
 
+@interface LXMSinaWeiboHelper ()<WeiboSDKDelegate>
+
+@end
 
 
 @implementation LXMSinaWeiboHelper
 
-+ (void)setupThirdLogin {
+- (void)setupThirdKey {
     [WeiboSDK registerApp:[LXMThirdLoginManager sharedManager].kSinaWeiboAppKey];
 }
 
-+ (void)requestLogin {
+- (void)requestLogin {
     WBAuthorizeRequest *authorizeRequest = [[WBAuthorizeRequest alloc] init];
     authorizeRequest.scope = @"";
     authorizeRequest.redirectURI = [LXMThirdLoginManager sharedManager].kSinaWeiboRedirectURI;
@@ -28,17 +30,18 @@
     [WeiboSDK sendRequest:authorizeRequest];
 }
 
-+ (BOOL)handleOpenUrl:(NSURL *)url {
-    return [WeiboSDK handleOpenURL:url delegate:(id<WeiboSDKDelegate>)self];
+- (BOOL)handleOpenUrl:(NSURL *)url {
+    return [WeiboSDK handleOpenURL:url delegate:self];
 }
 
-+ (BOOL)isAppInstalled {
+- (BOOL)isAppInstalled {
     return [WeiboSDK isWeiboAppInstalled];
 }
 
+
 #pragma mark - WeiboAPI
 
-+ (void)requestUserInfoWithLoginResult:(LXMThirdLoginResult *)result completedBlock:(LXMThirdLoginCompleteBlock)completedBlock {
+- (void)requestUserInfoWithLoginResult:(LXMThirdLoginResult *)result completedBlock:(LXMThirdLoginCompletionBlock)completedBlock {
     NSString *url = [NSString stringWithFormat:@"https://api.weibo.com/2/users/show.json?access_token=%@&uid=%@", result.accessToken, result.openId];
     [LXMThirdLoginManager simpleGet:url completedBlock:^(id response, NSError *error) {
         if (error == nil && response && [response isKindOfClass:[NSDictionary class]]) {
@@ -47,7 +50,7 @@
             result.signature = dict[@"description"];
             result.avatarUrl = dict[@"profile_image_url"];
             
-            result.thirdLoginState = [dict[@"error_code"] integerValue];//错误时才有
+            result.errorCode = [dict[@"error_code"] integerValue];//错误时才有
             result.message = dict[@"error"];//错误时才有
             
             if ([dict[@"gender"] isEqualToString:@"m"]) {
@@ -72,7 +75,11 @@
 
 #pragma mark - WeiboSDKDelegate
 
-+ (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
+- (void)didReceiveWeiboRequest:(WBBaseRequest *)request {
+    
+}
+
+- (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
     if ([response isKindOfClass:[WBAuthorizeResponse class]]) { //登录回调
         WBAuthorizeResponse *result = (WBAuthorizeResponse *)response;
         if (result.userID
@@ -87,21 +94,21 @@
             loginResult.accessToken = result.accessToken;
             
             if (![LXMThirdLoginManager sharedManager].shouldRequestUserInfo) {
-                if ([LXMThirdLoginManager sharedManager].loginCompletedBlcok) {
-                    [LXMThirdLoginManager sharedManager].loginCompletedBlcok(loginResult);
+                if ([LXMThirdLoginManager sharedManager].loginCompletionBlcok) {
+                    [LXMThirdLoginManager sharedManager].loginCompletionBlcok(loginResult);
                 }
             } else {
                 //请求nickName等个人信息后返回
                 [self requestUserInfoWithLoginResult:loginResult completedBlock:^(LXMThirdLoginResult *thirdLoginResult) {
-                    if ([LXMThirdLoginManager sharedManager].loginCompletedBlcok) {
-                        [LXMThirdLoginManager sharedManager].loginCompletedBlcok(thirdLoginResult);
+                    if ([LXMThirdLoginManager sharedManager].loginCompletionBlcok) {
+                        [LXMThirdLoginManager sharedManager].loginCompletionBlcok(thirdLoginResult);
                     }
                 }];
                 
             }
         } else {
-            if ([LXMThirdLoginManager sharedManager].loginCompletedBlcok) {
-                [LXMThirdLoginManager sharedManager].loginCompletedBlcok(nil);//nil说明是微博没有返回正确的数据
+            if ([LXMThirdLoginManager sharedManager].loginCompletionBlcok) {
+                [LXMThirdLoginManager sharedManager].loginCompletionBlcok(nil);//nil说明是微博没有返回正确的数据
             }
         }
     }

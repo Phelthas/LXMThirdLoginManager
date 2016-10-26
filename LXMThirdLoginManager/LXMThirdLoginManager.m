@@ -10,12 +10,11 @@
 #import "LXMSinaWeiboHelper.h"
 #import "LXMWeChatHelper.h"
 #import "LXMQQHelper.h"
-#import "LXMThirdLoginResult.h"
 
 
 @interface LXMThirdLoginManager ()
 
-@property (nonatomic, copy, readwrite) LXMThirdLoginCompleteBlock loginCompletedBlcok;
+@property (nonatomic, copy, readwrite) LXMThirdLoginCompletionBlock loginCompletionBlcok;
 
 @property (nonatomic, copy, readwrite) NSString *kSinaWeiboAppKey;
 @property (nonatomic, copy, readwrite) NSString *kSinaWeiboRedirectURI;
@@ -46,7 +45,7 @@
     
 }
 
-- (void)setupWithSinaWeiboAppKey:(NSString *)sinaWeiboAppKey SinaWeiboRedirectURI:(NSString *)sinaWeiboRedirectURI WeChatAppKey:(NSString *)weChatAppKey WeChatAppSecret:(NSString *)weChatAppSecret QQAppKey:(NSString *)qqAppKey {
+- (void)setupWithSinaWeiboAppKey:(NSString *)sinaWeiboAppKey sinaWeiboRedirectURI:(NSString *)sinaWeiboRedirectURI weChatAppKey:(NSString *)weChatAppKey weChatAppSecret:(NSString *)weChatAppSecret QQAppKey:(NSString *)qqAppKey {
     if (sinaWeiboAppKey && sinaWeiboRedirectURI) {
         self.kSinaWeiboAppKey = sinaWeiboAppKey;
         self.kSinaWeiboRedirectURI = sinaWeiboRedirectURI;
@@ -55,7 +54,7 @@
     if (weChatAppKey && weChatAppSecret) {
         self.kWeChatAppKey = weChatAppKey;
         self.kWeChatAppSecret = weChatAppSecret;
-        [LXMWeChatHelper setupThirdLogin];
+        [LXMWeChatHelper setupThirdKey];
     }
     if (qqAppKey) {
         self.kQQAppKey = qqAppKey;
@@ -63,8 +62,8 @@
     }
 }
 
-- (void)requestLoginWithThirdType:(LXMThirdLoginType)thirdLoginType completeBlock:(LXMThirdLoginCompleteBlock)completeBlock {
-    self.loginCompletedBlcok = completeBlock;
+- (void)requestLoginWithThirdType:(LXMThirdLoginType)thirdLoginType completeBlock:(LXMThirdLoginCompletionBlock)completeBlock {
+    self.loginCompletionBlcok = completeBlock;
     switch (thirdLoginType) {
         case LXMThirdLoginTypeSinaWeibo:
             [LXMSinaWeiboHelper requestLogin];
@@ -78,8 +77,6 @@
         default:
             break;
     }
-   
-
 }
 
 - (BOOL)handleOpenUrl:(NSURL *)url {
@@ -96,7 +93,7 @@
 
 #pragma mark - 检查是否安装
 
-+ (BOOL)isAppInstalled:(LXMThirdLoginType)type {
++ (BOOL)isAppInstalledForLoginType:(LXMThirdLoginType)type {
     switch (type) {
         case LXMThirdLoginTypeSinaWeibo:
             return [LXMSinaWeiboHelper isAppInstalled];

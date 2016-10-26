@@ -434,9 +434,18 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 993SNGFP2R;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LXMThirdLoginManagerDemo/LXMThirdLoginManager/QQSDK/QQ_SDK_V2.9",
+				);
 				INFOPLIST_FILE = LXMThirdLoginManagerDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LXMThirdLoginManagerDemo/LXMThirdLoginManager/SinaWeiboSDK/libWeiboSDK3.1.4",
+					"$(PROJECT_DIR)/LXMThirdLoginManagerDemo/LXMThirdLoginManager/WeChatSDK/WeChatSDK_1.7.3",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.duowan.TEST-weibo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -452,9 +461,18 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 993SNGFP2R;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LXMThirdLoginManagerDemo/LXMThirdLoginManager/QQSDK/QQ_SDK_V2.9",
+				);
 				INFOPLIST_FILE = LXMThirdLoginManagerDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LXMThirdLoginManagerDemo/LXMThirdLoginManager/SinaWeiboSDK/libWeiboSDK3.1.4",
+					"$(PROJECT_DIR)/LXMThirdLoginManagerDemo/LXMThirdLoginManager/WeChatSDK/WeChatSDK_1.7.3",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.duowan.TEST-weibo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

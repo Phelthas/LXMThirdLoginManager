@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LXMThirdLoginObject.h"
 
 /*
  当前SDK版本：
@@ -14,17 +15,6 @@
  微信1.7.3
  QQ2.9.0
  */
-
-
-typedef NS_ENUM(NSInteger, LXMThirdLoginType) {
-    LXMThirdLoginTypeSinaWeibo = 0,
-    LXMThirdLoginTypeWeChat = 1,
-    LXMThirdLoginTypeQQ = 2,
-};
-
-@class LXMThirdLoginResult;
-
-typedef void(^LXMThirdLoginCompleteBlock)(LXMThirdLoginResult *thirdLoginResult);
 
 @interface LXMThirdLoginManager : NSObject
 
@@ -40,20 +30,18 @@ typedef void(^LXMThirdLoginCompleteBlock)(LXMThirdLoginResult *thirdLoginResult)
 @property (nonatomic, assign) BOOL shouldRequestUserInfo;
 
 
-@property (nonatomic, copy, readonly) LXMThirdLoginCompleteBlock loginCompletedBlcok;
+@property (nonatomic, copy, readonly) LXMThirdLoginCompletionBlock loginCompletionBlcok;
 
 
 + (instancetype)sharedManager;
 
-+ (BOOL)isAppInstalled:(LXMThirdLoginType)type;
++ (BOOL)isAppInstalledForLoginType:(LXMThirdLoginType)type;
 
-- (void)setupWithSinaWeiboAppKey:(NSString *)sinaWeiboAppKey SinaWeiboRedirectURI:(NSString *)sinaWeiboRedirectURI WeChatAppKey:(NSString *)weChatAppKey WeChatAppSecret:(NSString *)weChatAppSecret QQAppKey:(NSString *)qqAppKey;
+- (void)setupWithSinaWeiboAppKey:(NSString *)sinaWeiboAppKey sinaWeiboRedirectURI:(NSString *)sinaWeiboRedirectURI weChatAppKey:(NSString *)weChatAppKey weChatAppSecret:(NSString *)weChatAppSecret QQAppKey:(NSString *)qqAppKey;
 
 
-/**
- * thirdLoginResult不为nil且thirdLoginResult.thirdLoginState==0的时候成功
- */
-- (void)requestLoginWithThirdType:(LXMThirdLoginType)thirdLoginType completeBlock:(LXMThirdLoginCompleteBlock)completeBlock;
+- (void)requestLoginWithThirdType:(LXMThirdLoginType)thirdLoginType completeBlock:(LXMThirdLoginCompletionBlock)completeBlock;
+
 
 - (BOOL)handleOpenUrl:(NSURL *)url;
 

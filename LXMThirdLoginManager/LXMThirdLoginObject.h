@@ -1,18 +1,32 @@
 //
-//  LXMThirdLoginResult.h
+//  LXMThirdLoginObject.h
 //  LXMThirdLoginManagerDemo
 //
-//  Created by luxiaoming on 15/5/11.
-//  Copyright (c) 2015年 luxiaoming. All rights reserved.
+//  Created by luxiaoming on 2016/10/26.
+//  Copyright © 2016年 luxiaoming. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "LXMThirdLoginManager.h"
+
+typedef NS_ENUM(NSInteger, LXMThirdLoginType) {
+    LXMThirdLoginTypeSinaWeibo = 0,
+    LXMThirdLoginTypeWeChat = 1,
+    LXMThirdLoginTypeQQ = 2,
+};
+
+
+
+
+@class LXMThirdLoginResult;
+typedef void(^LXMThirdLoginCompletionBlock)(LXMThirdLoginResult *thirdInfo);
+
+
 
 @interface LXMThirdLoginResult : NSObject
 
-@property (nonatomic, assign) NSInteger thirdLoginState;//0成功，其他失败
-@property (nonatomic, copy) NSString *message;
+@property (nonatomic, assign) NSInteger errorCode;//0成功，其他失败
+@property (nonatomic, copy) NSString *message;//失败时才有
+
 @property (nonatomic, assign) LXMThirdLoginType thirdLoginType;
 @property (nonatomic, copy) NSString *openId;
 @property (nonatomic, copy) NSString *accessToken;
@@ -27,5 +41,22 @@
 @property (nonatomic, assign) NSTimeInterval *birthday;
 @property (nonatomic, copy) NSString *avatarUrl;
 
+@end
+
+
+
+@interface LXMThirdBaseHelper : NSObject
+
+- (void)setupThirdKey;
+
+- (void)requestLogin;
+
+- (BOOL)handleOpenUrl:(NSURL *)url;
+
+- (BOOL)isAppInstalled;
 
 @end
+
+
+
+

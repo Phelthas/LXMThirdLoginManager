@@ -7,15 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LXMThirdLoginObject.h"
 
-@interface LXMSinaWeiboHelper : NSObject
-
-+ (void)setupThirdLogin;
-
-+ (void)requestLogin;
-
-+ (BOOL)handleOpenUrl:(NSURL *)url;
-
-+ (BOOL)isAppInstalled;
+@interface LXMSinaWeiboHelper : LXMThirdBaseHelper
 
 @end
