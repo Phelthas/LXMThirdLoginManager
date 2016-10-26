@@ -26,7 +26,8 @@ static NSString * const kQQAppKey = nil;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [[LXMThirdLoginManager sharedManager] setupWithSinaWeiboAppKey:kSinaWeiboAppKey SinaWeiboRedirectURI:kSinaWeiboRedirectURI WeChatAppKey:kWeChatAppKey WeChatAppSecret:kWeChatAppSecret QQAppKey:kQQAppKey];
+    [[LXMThirdLoginManager sharedManager] setupWithSinaWeiboAppKey:kSinaWeiboAppKey sinaWeiboRedirectURI:kSinaWeiboRedirectURI weChatAppKey:kWeChatAppKey weChatAppSecret:kWeChatAppSecret QQAppKey:kQQAppKey];
+    
     return YES;
 }
 

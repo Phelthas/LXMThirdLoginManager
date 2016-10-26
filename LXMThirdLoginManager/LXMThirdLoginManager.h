@@ -35,7 +35,7 @@
 
 + (instancetype)sharedManager;
 
-+ (BOOL)isAppInstalledForLoginType:(LXMThirdLoginType)type;
+- (BOOL)isAppInstalledForLoginType:(LXMThirdLoginType)type;
 
 - (void)setupWithSinaWeiboAppKey:(NSString *)sinaWeiboAppKey sinaWeiboRedirectURI:(NSString *)sinaWeiboRedirectURI weChatAppKey:(NSString *)weChatAppKey weChatAppSecret:(NSString *)weChatAppSecret QQAppKey:(NSString *)qqAppKey;
 

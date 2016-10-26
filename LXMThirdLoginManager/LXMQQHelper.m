@@ -10,7 +10,6 @@
 #import <TencentOAuth.h>
 #import <TencentApiInterface.h>
 #import "LXMThirdLoginManager.h"
-#import "LXMThirdLoginResult.h"
 
 @interface LXMQQHelper ()<TencentSessionDelegate>
 
@@ -72,14 +71,14 @@ static TencentOAuth *tencentOAuth;
                 loginResult.gender = 2;
             }
             
-            if ([LXMThirdLoginManager sharedManager].loginCompletedBlcok) {
-                [LXMThirdLoginManager sharedManager].loginCompletedBlcok(loginResult);
+            if ([LXMThirdLoginManager sharedManager].loginCompletionBlcok) {
+                [LXMThirdLoginManager sharedManager].loginCompletionBlcok(loginResult);
             }
             
             
         } else {
-            if ([LXMThirdLoginManager sharedManager].loginCompletedBlcok) {
-                [LXMThirdLoginManager sharedManager].loginCompletedBlcok(nil);//错误
+            if ([LXMThirdLoginManager sharedManager].loginCompletionBlcok) {
+                [LXMThirdLoginManager sharedManager].loginCompletionBlcok(nil);//错误
             }
         }
         
@@ -100,8 +99,8 @@ static TencentOAuth *tencentOAuth;
         loginResult.expires_in = [tencentOAuth.expirationDate timeIntervalSince1970];
         
         if (![LXMThirdLoginManager sharedManager].shouldRequestUserInfo) {
-            if ([LXMThirdLoginManager sharedManager].loginCompletedBlcok) {
-                [LXMThirdLoginManager sharedManager].loginCompletedBlcok(loginResult);
+            if ([LXMThirdLoginManager sharedManager].loginCompletionBlcok) {
+                [LXMThirdLoginManager sharedManager].loginCompletionBlcok(loginResult);
             }
         } else {
             //这个获取信息貌似是获取qq空间的信息
@@ -109,8 +108,8 @@ static TencentOAuth *tencentOAuth;
         }
 
     } else {
-        if ([LXMThirdLoginManager sharedManager].loginCompletedBlcok) {
-            [LXMThirdLoginManager sharedManager].loginCompletedBlcok(nil);//nil是没有有效数据
+        if ([LXMThirdLoginManager sharedManager].loginCompletionBlcok) {
+            [LXMThirdLoginManager sharedManager].loginCompletionBlcok(nil);//nil是没有有效数据
         }
     }
 }

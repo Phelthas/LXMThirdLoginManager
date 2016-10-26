@@ -23,6 +23,12 @@
 @property (nonatomic, copy, readwrite) NSString *kQQAppKey;
 
 
+@property (nonatomic, strong) LXMSinaWeiboHelper *sinaWeiboHelper;
+@property (nonatomic, strong) LXMWeChatHelper *weChatHelper;
+@property (nonatomic, strong) LXMQQHelper *qqHelper;
+
+
+
 @end
 
 @implementation LXMThirdLoginManager
@@ -49,16 +55,16 @@
     if (sinaWeiboAppKey && sinaWeiboRedirectURI) {
         self.kSinaWeiboAppKey = sinaWeiboAppKey;
         self.kSinaWeiboRedirectURI = sinaWeiboRedirectURI;
-        [LXMSinaWeiboHelper setupThirdLogin];
+        [self.sinaWeiboHelper setupThirdKey];
     }
     if (weChatAppKey && weChatAppSecret) {
         self.kWeChatAppKey = weChatAppKey;
         self.kWeChatAppSecret = weChatAppSecret;
-        [LXMWeChatHelper setupThirdKey];
+        [self.weChatHelper setupThirdKey];
     }
     if (qqAppKey) {
         self.kQQAppKey = qqAppKey;
-        [LXMQQHelper setupThirdLogin];
+        [self.qqHelper setupThirdKey];
     }
 }
 
@@ -66,13 +72,13 @@
     self.loginCompletionBlcok = completeBlock;
     switch (thirdLoginType) {
         case LXMThirdLoginTypeSinaWeibo:
-            [LXMSinaWeiboHelper requestLogin];
+            [self.sinaWeiboHelper requestLogin];
             break;
         case LXMThirdLoginTypeWeChat:
-            [LXMWeChatHelper requestLogin];
+            [self.weChatHelper requestLogin];
             break;
         case LXMThirdLoginTypeQQ:
-            [LXMQQHelper requestLogin];
+            [self.qqHelper requestLogin];
             break;
         default:
             break;
@@ -81,11 +87,11 @@
 
 - (BOOL)handleOpenUrl:(NSURL *)url {
     if ([url.scheme hasSuffix:self.kSinaWeiboAppKey]) {
-        return [LXMSinaWeiboHelper handleOpenUrl:url];
+        return [self.sinaWeiboHelper handleOpenUrl:url];
     } else if ([url.scheme hasSuffix:self.kWeChatAppKey]) {
-        return [LXMWeChatHelper handleOpenUrl:url];
+        return [self.weChatHelper handleOpenUrl:url];
     } else if ([url.scheme hasSuffix:self.kQQAppKey]) {
-        return [LXMQQHelper handleOpenUrl:url];
+        return [self.qqHelper handleOpenUrl:url];
     } else {
         return NO;
     }
@@ -93,16 +99,16 @@
 
 #pragma mark - 检查是否安装
 
-+ (BOOL)isAppInstalledForLoginType:(LXMThirdLoginType)type {
+- (BOOL)isAppInstalledForLoginType:(LXMThirdLoginType)type {
     switch (type) {
         case LXMThirdLoginTypeSinaWeibo:
-            return [LXMSinaWeiboHelper isAppInstalled];
+            return [self.sinaWeiboHelper isAppInstalled];
             break;
         case LXMThirdLoginTypeWeChat:
-            return [LXMWeChatHelper isAppInstalled];
+            return [self.weChatHelper isAppInstalled];
             break;
         case LXMThirdLoginTypeQQ:
-            return [LXMQQHelper isAppInstalled];
+            return [self.qqHelper isAppInstalled];
             break;
         default:
             return NO;
@@ -126,6 +132,29 @@
             }
         }
     }];
+}
+
+#pragma mark - Property
+
+- (LXMSinaWeiboHelper *)sinaWeiboHelper {
+    if (!_sinaWeiboHelper) {
+        _sinaWeiboHelper = [[LXMSinaWeiboHelper alloc] init];
+    }
+    return _sinaWeiboHelper;
+}
+
+- (LXMWeChatHelper *)weChatHelper {
+    if (!_weChatHelper) {
+        _weChatHelper = [[LXMWeChatHelper alloc] init];
+    }
+    return _weChatHelper;
+}
+
+- (LXMQQHelper *)qqHelper {
+    if (!_qqHelper) {
+        _qqHelper = [[LXMQQHelper alloc] init];
+    }
+    return _qqHelper;
 }
 
 @end

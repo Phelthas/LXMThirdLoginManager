@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import <LXMThirdLoginManager.h>
-#import <LXMThirdLoginResult.h>
 
 @interface ViewController ()
 
@@ -30,44 +29,44 @@
 
 - (IBAction)handleWeiboButtonTapped:(UIButton *)sender {
     [[LXMThirdLoginManager sharedManager] requestLoginWithThirdType:LXMThirdLoginTypeSinaWeibo completeBlock:^(LXMThirdLoginResult *thirdLoginResult) {
-        if (thirdLoginResult && thirdLoginResult.thirdLoginState == 0) {
+        if (thirdLoginResult && thirdLoginResult.errorCode == 0) {
             NSLog(@"thirdLoginResult is %@ \n name:%@ \n avatar:%@", thirdLoginResult, thirdLoginResult.userName, thirdLoginResult.avatarUrl);
             
         } else {
-            NSLog(@"error_code: %@, error_message: %@", @(thirdLoginResult.thirdLoginState), thirdLoginResult.message);
+            NSLog(@"error_code: %@, error_message: %@", @(thirdLoginResult.errorCode), thirdLoginResult.message);
         }
     }];
 }
 
 - (IBAction)handleWeiXinButtonTapped:(id)sender {
-    if (![LXMThirdLoginManager isAppInstalled:LXMThirdLoginTypeWeChat]) {
+    if (![[LXMThirdLoginManager sharedManager] isAppInstalledForLoginType:LXMThirdLoginTypeWeChat]) {
         //一般来说这个是用来判断这个第三方登录的按钮是否应该显示出来的
         return;
     }
     
     [LXMThirdLoginManager sharedManager].shouldRequestUserInfo = YES;
     [[LXMThirdLoginManager sharedManager] requestLoginWithThirdType:LXMThirdLoginTypeWeChat completeBlock:^(LXMThirdLoginResult *thirdLoginResult) {
-        if (thirdLoginResult && thirdLoginResult.thirdLoginState == 0) {
+        if (thirdLoginResult && thirdLoginResult.errorCode == 0) {
             NSLog(@"thirdLoginResult is %@ \n name:%@ \n avatar:%@", thirdLoginResult, thirdLoginResult.userName, thirdLoginResult.avatarUrl);
         } else {
-            NSLog(@"error_code: %@, error_message: %@", @(thirdLoginResult.thirdLoginState), thirdLoginResult.message);
+            NSLog(@"error_code: %@, error_message: %@", @(thirdLoginResult.errorCode), thirdLoginResult.message);
         }
     }];
 }
 
 - (IBAction)handleQQButtonTapped:(id)sender {
-    if (![LXMThirdLoginManager isAppInstalled:LXMThirdLoginTypeQQ]) {
+    if (![[LXMThirdLoginManager sharedManager] isAppInstalledForLoginType:LXMThirdLoginTypeQQ]) {
         //一般来说这个是用来判断这个第三方登录的按钮是否应该显示出来的
         return;
     }
     
     [LXMThirdLoginManager sharedManager].shouldRequestUserInfo = YES;
     [[LXMThirdLoginManager sharedManager] requestLoginWithThirdType:LXMThirdLoginTypeQQ completeBlock:^(LXMThirdLoginResult *thirdLoginResult) {
-        if (thirdLoginResult && thirdLoginResult.thirdLoginState == 0) {
+        if (thirdLoginResult && thirdLoginResult.errorCode == 0) {
             NSLog(@"thirdLoginResult is %@ \n name:%@ \n avatar:%@", thirdLoginResult, thirdLoginResult.userName, thirdLoginResult.avatarUrl);
             
         } else {
-            NSLog(@"error_code: %@, error_message: %@", @(thirdLoginResult.thirdLoginState), thirdLoginResult.message);
+            NSLog(@"error_code: %@, error_message: %@", @(thirdLoginResult.errorCode), thirdLoginResult.message);
         }
     }];
 }
