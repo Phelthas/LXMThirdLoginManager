@@ -39,7 +39,7 @@
 }
 
 - (IBAction)handleWeiXinButtonTapped:(id)sender {
-    if (![[LXMThirdLoginManager sharedManager] isAppInstalledForLoginType:LXMThirdLoginTypeWeChat]) {
+    if (![LXMThirdLoginManager isAppInstalledForLoginType:LXMThirdLoginTypeWeChat]) {
         //一般来说这个是用来判断这个第三方登录的按钮是否应该显示出来的
         return;
     }
@@ -55,7 +55,7 @@
 }
 
 - (IBAction)handleQQButtonTapped:(id)sender {
-    if (![[LXMThirdLoginManager sharedManager] isAppInstalledForLoginType:LXMThirdLoginTypeQQ]) {
+    if (![LXMThirdLoginManager isAppInstalledForLoginType:LXMThirdLoginTypeQQ]) {
         //一般来说这个是用来判断这个第三方登录的按钮是否应该显示出来的
         return;
     }

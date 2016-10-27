@@ -99,16 +99,16 @@
 
 #pragma mark - 检查是否安装
 
-- (BOOL)isAppInstalledForLoginType:(LXMThirdLoginType)type {
++ (BOOL)isAppInstalledForLoginType:(LXMThirdLoginType)type {
     switch (type) {
         case LXMThirdLoginTypeSinaWeibo:
-            return [self.sinaWeiboHelper isAppInstalled];
+            return [LXMSinaWeiboHelper isAppInstalled];
             break;
         case LXMThirdLoginTypeWeChat:
-            return [self.weChatHelper isAppInstalled];
+            return [LXMWeChatHelper isAppInstalled];
             break;
         case LXMThirdLoginTypeQQ:
-            return [self.qqHelper isAppInstalled];
+            return [LXMQQHelper isAppInstalled];
             break;
         default:
             return NO;

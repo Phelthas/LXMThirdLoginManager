@@ -31,11 +31,11 @@
 }
 
 - (BOOL)handleOpenUrl:(NSURL *)url {
-    return [WXApi handleOpenURL:url delegate:(id<WXApiDelegate>)self];
+    return [WXApi handleOpenURL:url delegate:self];
 
 }
 
-- (BOOL)isAppInstalled {
++ (BOOL)isAppInstalled {
     return [WXApi isWXAppInstalled];
 }
 

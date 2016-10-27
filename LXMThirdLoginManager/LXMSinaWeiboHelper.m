@@ -9,6 +9,7 @@
 #import "LXMSinaWeiboHelper.h"
 #import "WeiboSDK.h"
 #import "LXMThirdLoginManager.h"
+#import <objc/runtime.h>
 
 @interface LXMSinaWeiboHelper ()<WeiboSDKDelegate>
 
@@ -19,6 +20,7 @@
 
 - (void)setupThirdKey {
     [WeiboSDK registerApp:[LXMThirdLoginManager sharedManager].kSinaWeiboAppKey];
+    [LXMSinaWeiboHelper methodSwizzling];
 }
 
 - (void)requestLogin {
@@ -34,10 +36,32 @@
     return [WeiboSDK handleOpenURL:url delegate:self];
 }
 
-- (BOOL)isAppInstalled {
++ (BOOL)isAppInstalled {
     return [WeiboSDK isWeiboAppInstalled];
 }
 
+
+#pragma mark - tool
+
++ (void)methodSwizzling {
+    NSString *appBundleId = [LXMThirdLoginManager sharedManager].appBundleId;
+    if (!(appBundleId && appBundleId.length > 0)) {
+        return;
+    }
+    
+    Class c = objc_getClass("WeiboSDK3rdApp");
+    id block = ^NSString*(){
+        return appBundleId;
+    };
+    SEL selctor = NSSelectorFromString(@"bundleID");
+    
+    IMP test = imp_implementationWithBlock(block);
+    Method origMethod = class_getInstanceMethod(c, selctor);
+    
+    if (!class_addMethod(c, selctor, test, method_getTypeEncoding(origMethod))) {
+        method_setImplementation(origMethod, test);
+    }
+}
 
 #pragma mark - WeiboAPI
 

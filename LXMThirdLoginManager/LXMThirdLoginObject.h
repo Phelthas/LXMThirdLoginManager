@@ -53,7 +53,7 @@ typedef void(^LXMThirdLoginCompletionBlock)(LXMThirdLoginResult *thirdInfo);
 
 - (BOOL)handleOpenUrl:(NSURL *)url;
 
-- (BOOL)isAppInstalled;
++ (BOOL)isAppInstalled;
 
 @end
 

@@ -20,7 +20,7 @@ static TencentOAuth *tencentOAuth;
 @implementation LXMQQHelper
 
 - (void)setupThirdKey {
-    tencentOAuth = [[TencentOAuth alloc] initWithAppId:[LXMThirdLoginManager sharedManager].kQQAppKey andDelegate:(id<TencentSessionDelegate>)self];
+    tencentOAuth = [[TencentOAuth alloc] initWithAppId:[LXMThirdLoginManager sharedManager].kQQAppKey andDelegate:self];
 }
 
 - (void)requestLogin {
@@ -34,7 +34,7 @@ static TencentOAuth *tencentOAuth;
     return [TencentOAuth HandleOpenURL:url];
 }
 
-- (BOOL)isAppInstalled {
++ (BOOL)isAppInstalled {
     return [TencentOAuth iphoneQQInstalled];
 }
 

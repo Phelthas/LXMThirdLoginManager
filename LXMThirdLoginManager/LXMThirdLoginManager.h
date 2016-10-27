@@ -29,13 +29,19 @@
  */
 @property (nonatomic, assign) BOOL shouldRequestUserInfo;
 
+/**
+ 测试的时候新浪微博可能会出现BundleId对不上的问题，可以设置这个字段来解决，内部会用methodSwizzling的方式替换；
+ 必须在setupWithSinaWeiboAppKey之前设置！！！
+ */
+@property (nonatomic, copy) NSString *appBundleId;
+
 
 @property (nonatomic, copy, readonly) LXMThirdLoginCompletionBlock loginCompletionBlcok;
 
 
 + (instancetype)sharedManager;
 
-- (BOOL)isAppInstalledForLoginType:(LXMThirdLoginType)type;
++ (BOOL)isAppInstalledForLoginType:(LXMThirdLoginType)type;
 
 - (void)setupWithSinaWeiboAppKey:(NSString *)sinaWeiboAppKey sinaWeiboRedirectURI:(NSString *)sinaWeiboRedirectURI weChatAppKey:(NSString *)weChatAppKey weChatAppSecret:(NSString *)weChatAppSecret QQAppKey:(NSString *)qqAppKey;
 

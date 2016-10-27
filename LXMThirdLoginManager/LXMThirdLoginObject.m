@@ -32,7 +32,7 @@
     return NO;
 }
 
-- (BOOL)isAppInstalled {
++ (BOOL)isAppInstalled {
     NSAssert(NO, @"need subclass implementation");
     return NO;
 }
