@@ -118,22 +118,30 @@
             loginResult.accessToken = result.accessToken;
             
             if (![LXMThirdLoginManager sharedManager].shouldRequestUserInfo) {
-                if ([LXMThirdLoginManager sharedManager].loginCompletionBlcok) {
-                    [LXMThirdLoginManager sharedManager].loginCompletionBlcok(loginResult);
+                if ([LXMThirdLoginManager sharedManager].loginCompletionBlock) {
+                    [LXMThirdLoginManager sharedManager].loginCompletionBlock(loginResult);
                 }
             } else {
                 //请求nickName等个人信息后返回
                 [self requestUserInfoWithLoginResult:loginResult completedBlock:^(LXMThirdLoginResult *thirdLoginResult) {
-                    if ([LXMThirdLoginManager sharedManager].loginCompletionBlcok) {
-                        [LXMThirdLoginManager sharedManager].loginCompletionBlcok(thirdLoginResult);
+                    if ([LXMThirdLoginManager sharedManager].loginCompletionBlock) {
+                        [LXMThirdLoginManager sharedManager].loginCompletionBlock(thirdLoginResult);
                     }
                 }];
                 
             }
         } else {
-            if ([LXMThirdLoginManager sharedManager].loginCompletionBlcok) {
-                [LXMThirdLoginManager sharedManager].loginCompletionBlcok(nil);//nil说明是微博没有返回正确的数据
+            if ([LXMThirdLoginManager sharedManager].loginCompletionBlock) {
+                [LXMThirdLoginManager sharedManager].loginCompletionBlock(nil);//nil说明是微博没有返回正确的数据
             }
+        }
+    }
+    else if ([response isKindOfClass:[WBSendMessageToWeiboResponse class]]) {
+        LXMThirdShareResult *shareResult = [[LXMThirdShareResult alloc] init];
+        shareResult.shareType = LXMThirdLoginTypeSinaWeibo;
+        shareResult.responseObject = response;
+        if ([LXMThirdLoginManager sharedManager].shareCompletionBlock) {
+            [LXMThirdLoginManager sharedManager].shareCompletionBlock(shareResult);
         }
     }
 }

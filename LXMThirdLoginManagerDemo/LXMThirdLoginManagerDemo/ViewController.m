@@ -28,6 +28,10 @@
 #pragma mark - buttonAction
 
 - (IBAction)handleWeiboButtonTapped:(UIButton *)sender {
+    if (![LXMThirdLoginManager isAppInstalledForLoginType:LXMThirdLoginTypeSinaWeibo]) {
+        return; //一般来说这个是用来判断这个第三方登录的按钮是否应该显示出来的
+    }
+    
     [[LXMThirdLoginManager sharedManager] requestLoginWithThirdType:LXMThirdLoginTypeSinaWeibo completeBlock:^(LXMThirdLoginResult *thirdLoginResult) {
         if (thirdLoginResult && thirdLoginResult.errorCode == 0) {
             NSLog(@"thirdLoginResult is %@ \n name:%@ \n avatar:%@", thirdLoginResult, thirdLoginResult.userName, thirdLoginResult.avatarUrl);

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "LXMThirdLoginObject.h"
+#import "LXMThirdShareObject.h"
 
 /*
  当前SDK版本：
@@ -36,7 +37,10 @@
 @property (nonatomic, copy) NSString *appBundleId;
 
 
-@property (nonatomic, copy, readonly) LXMThirdLoginCompletionBlock loginCompletionBlcok;
+@property (nonatomic, copy, readonly) LXMThirdLoginCompletionBlock loginCompletionBlock;
+
+
+@property (nonatomic, copy) LXMThirdShareCompletionBlock shareCompletionBlock;
 
 
 + (instancetype)sharedManager;

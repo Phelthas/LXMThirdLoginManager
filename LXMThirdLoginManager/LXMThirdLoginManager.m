@@ -14,7 +14,7 @@
 
 @interface LXMThirdLoginManager ()
 
-@property (nonatomic, copy, readwrite) LXMThirdLoginCompletionBlock loginCompletionBlcok;
+@property (nonatomic, copy, readwrite) LXMThirdLoginCompletionBlock loginCompletionBlock;
 
 @property (nonatomic, copy, readwrite) NSString *kSinaWeiboAppKey;
 @property (nonatomic, copy, readwrite) NSString *kSinaWeiboRedirectURI;
@@ -69,7 +69,7 @@
 }
 
 - (void)requestLoginWithThirdType:(LXMThirdLoginType)thirdLoginType completeBlock:(LXMThirdLoginCompletionBlock)completeBlock {
-    self.loginCompletionBlcok = completeBlock;
+    self.loginCompletionBlock = completeBlock;
     switch (thirdLoginType) {
         case LXMThirdLoginTypeSinaWeibo:
             [self.sinaWeiboHelper requestLogin];

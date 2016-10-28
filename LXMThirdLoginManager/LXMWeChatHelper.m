@@ -110,13 +110,13 @@
             [self requestTokenWithCode:tempResp.code completedBlock:^(LXMThirdLoginResult *thirdLoginResult) {
                 if (![LXMThirdLoginManager sharedManager].shouldRequestUserInfo) {
                     //如果不用个人信息，那这时候返回的有效信息只有一个accessToken
-                    if ([LXMThirdLoginManager sharedManager].loginCompletionBlcok) {
-                        [LXMThirdLoginManager sharedManager].loginCompletionBlcok(thirdLoginResult);
+                    if ([LXMThirdLoginManager sharedManager].loginCompletionBlock) {
+                        [LXMThirdLoginManager sharedManager].loginCompletionBlock(thirdLoginResult);
                     }
                 } else {
                     [self requestUserInfoWith:thirdLoginResult completedBlock:^(LXMThirdLoginResult *thirdLoginResult) {
-                        if ([LXMThirdLoginManager sharedManager].loginCompletionBlcok) {
-                            [LXMThirdLoginManager sharedManager].loginCompletionBlcok(thirdLoginResult);
+                        if ([LXMThirdLoginManager sharedManager].loginCompletionBlock) {
+                            [LXMThirdLoginManager sharedManager].loginCompletionBlock(thirdLoginResult);
                         }
                         
                     }];
@@ -124,9 +124,17 @@
             }];
             
         } else {
-            if ([LXMThirdLoginManager sharedManager].loginCompletionBlcok) {
-                [LXMThirdLoginManager sharedManager].loginCompletionBlcok(nil);//nil说明是微博没有返回正确的数据
+            if ([LXMThirdLoginManager sharedManager].loginCompletionBlock) {
+                [LXMThirdLoginManager sharedManager].loginCompletionBlock(nil);//nil说明是微博没有返回正确的数据
             }
+        }
+    }
+    else if ([resp isKindOfClass:[SendMessageToWXResp class]]) {
+        LXMThirdShareResult *shareResult = [[LXMThirdShareResult alloc] init];
+        shareResult.shareType = LXMThirdLoginTypeWeChat;
+        shareResult.responseObject = resp;
+        if ([LXMThirdLoginManager sharedManager].shareCompletionBlock) {
+            [LXMThirdLoginManager sharedManager].shareCompletionBlock(shareResult);
         }
     }
 

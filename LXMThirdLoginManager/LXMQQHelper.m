@@ -9,9 +9,12 @@
 #import "LXMQQHelper.h"
 #import <TencentOAuth.h>
 #import <TencentApiInterface.h>
+#import <QQApiInterface.h>
 #import "LXMThirdLoginManager.h"
 
-@interface LXMQQHelper ()<TencentSessionDelegate>
+@interface LXMQQHelper ()<TencentSessionDelegate, QQApiInterfaceDelegate>
+
+@property (nonatomic, assign) BOOL isLoginWorkflow;//用来区分是登录流程，还是分享流程,这里qqSDK略坑，登录和分享用的不同的类不同的协议，需要调用不同的handleOpenUrl，如果要写到同一个类里面，就需要区分。。。
 
 @end
 
@@ -24,6 +27,7 @@ static TencentOAuth *tencentOAuth;
 }
 
 - (void)requestLogin {
+    self.isLoginWorkflow = YES;
     NSArray *permissions = @[kOPEN_PERMISSION_GET_INFO,
                              kOPEN_PERMISSION_GET_USER_INFO,
                              kOPEN_PERMISSION_GET_SIMPLE_USER_INFO];
@@ -31,11 +35,47 @@ static TencentOAuth *tencentOAuth;
 }
 
 - (BOOL)handleOpenUrl:(NSURL *)url {
-    return [TencentOAuth HandleOpenURL:url];
+    if (self.isLoginWorkflow == YES) {
+        return [TencentOAuth HandleOpenURL:url];
+    } else {
+        return [QQApiInterface handleOpenURL:url delegate:self];
+    }
 }
 
 + (BOOL)isAppInstalled {
     return [TencentOAuth iphoneQQInstalled];
+}
+
+
+#pragma mark - QQApiInterfaceDelegate
+
+/**
+ 处理来至QQ的请求
+ */
+- (void)onReq:(QQBaseReq *)req {
+    
+}
+
+/**
+ 处理来至QQ的响应
+ */
+- (void)onResp:(QQBaseResp *)resp {
+   
+    if ([resp isKindOfClass:[SendMessageToQQResp class]]) {
+        LXMThirdShareResult *shareResult = [[LXMThirdShareResult alloc] init];
+        shareResult.shareType = LXMThirdLoginTypeQQ;
+        shareResult.responseObject = resp;
+        if ([LXMThirdLoginManager sharedManager].shareCompletionBlock) {
+            [LXMThirdLoginManager sharedManager].shareCompletionBlock(shareResult);
+        }
+    }
+}
+
+/**
+ 处理QQ在线状态的回调
+ */
+- (void)isOnlineResponse:(NSDictionary *)response {
+    
 }
 
 
@@ -71,14 +111,14 @@ static TencentOAuth *tencentOAuth;
                 loginResult.gender = 2;
             }
             
-            if ([LXMThirdLoginManager sharedManager].loginCompletionBlcok) {
-                [LXMThirdLoginManager sharedManager].loginCompletionBlcok(loginResult);
+            if ([LXMThirdLoginManager sharedManager].loginCompletionBlock) {
+                [LXMThirdLoginManager sharedManager].loginCompletionBlock(loginResult);
             }
             
             
         } else {
-            if ([LXMThirdLoginManager sharedManager].loginCompletionBlcok) {
-                [LXMThirdLoginManager sharedManager].loginCompletionBlcok(nil);//错误
+            if ([LXMThirdLoginManager sharedManager].loginCompletionBlock) {
+                [LXMThirdLoginManager sharedManager].loginCompletionBlock(nil);//错误
             }
         }
         
@@ -91,6 +131,7 @@ static TencentOAuth *tencentOAuth;
 #pragma mark - privateMethod
 
 - (void)createThirdLoginResult {
+    self.isLoginWorkflow = NO;
     if (tencentOAuth.accessToken && tencentOAuth.accessToken.length > 0) {
         LXMThirdLoginResult *loginResult = [[LXMThirdLoginResult alloc] init];
         loginResult.accessToken = tencentOAuth.accessToken;
@@ -99,8 +140,8 @@ static TencentOAuth *tencentOAuth;
         loginResult.expires_in = [tencentOAuth.expirationDate timeIntervalSince1970];
         
         if (![LXMThirdLoginManager sharedManager].shouldRequestUserInfo) {
-            if ([LXMThirdLoginManager sharedManager].loginCompletionBlcok) {
-                [LXMThirdLoginManager sharedManager].loginCompletionBlcok(loginResult);
+            if ([LXMThirdLoginManager sharedManager].loginCompletionBlock) {
+                [LXMThirdLoginManager sharedManager].loginCompletionBlock(loginResult);
             }
         } else {
             //这个获取信息貌似是获取qq空间的信息
@@ -108,8 +149,8 @@ static TencentOAuth *tencentOAuth;
         }
 
     } else {
-        if ([LXMThirdLoginManager sharedManager].loginCompletionBlcok) {
-            [LXMThirdLoginManager sharedManager].loginCompletionBlcok(nil);//nil是没有有效数据
+        if ([LXMThirdLoginManager sharedManager].loginCompletionBlock) {
+            [LXMThirdLoginManager sharedManager].loginCompletionBlock(nil);//nil是没有有效数据
         }
     }
 }
