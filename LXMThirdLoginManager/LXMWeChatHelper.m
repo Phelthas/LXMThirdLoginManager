@@ -44,7 +44,7 @@
 
 - (void)requestTokenWithCode:(NSString *)code completedBlock:(LXMThirdLoginCompletionBlock)completionBlock {
     NSString *url = [NSString stringWithFormat:@"https://api.weixin.qq.com/sns/oauth2/access_token?appid=%@&secret=%@&code=%@&grant_type=authorization_code", [LXMThirdLoginManager sharedManager].kWeChatAppKey, [LXMThirdLoginManager sharedManager].kWeChatAppSecret, code];
-    [LXMThirdLoginManager simpleGet:url completedBlock:^(id response, NSError *error) {
+    [LXMThirdBaseHelper simpleGet:url completedBlock:^(id response, NSError *error) {
         if (error == nil && response && [response isKindOfClass:[NSDictionary class]]) {
             NSDictionary *dict = (NSDictionary *)response;
             LXMThirdLoginResult *result = [[LXMThirdLoginResult alloc] init];
@@ -72,7 +72,7 @@
 
 - (void)requestUserInfoWith:(LXMThirdLoginResult *)tempResult completedBlock:(LXMThirdLoginCompletionBlock)completedBlock {
     NSString *url = [NSString stringWithFormat:@"https://api.weixin.qq.com/sns/userinfo?access_token=%@&openid=%@",tempResult.accessToken, tempResult.openId];
-    [LXMThirdLoginManager simpleGet:url completedBlock:^(id response, NSError *error) {
+    [LXMThirdBaseHelper simpleGet:url completedBlock:^(id response, NSError *error) {
         if (error == nil && response && [response isKindOfClass:[NSDictionary class]]) {
             NSDictionary *dict = (NSDictionary *)response;
             tempResult.userName = dict[@"nickname"];

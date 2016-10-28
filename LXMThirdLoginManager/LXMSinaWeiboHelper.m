@@ -67,7 +67,7 @@
 
 - (void)requestUserInfoWithLoginResult:(LXMThirdLoginResult *)result completedBlock:(LXMThirdLoginCompletionBlock)completedBlock {
     NSString *url = [NSString stringWithFormat:@"https://api.weibo.com/2/users/show.json?access_token=%@&uid=%@", result.accessToken, result.openId];
-    [LXMThirdLoginManager simpleGet:url completedBlock:^(id response, NSError *error) {
+    [LXMThirdBaseHelper simpleGet:url completedBlock:^(id response, NSError *error) {
         if (error == nil && response && [response isKindOfClass:[NSDictionary class]]) {
             NSDictionary *dict = (NSDictionary *)response;
             result.userName = dict[@"name"];

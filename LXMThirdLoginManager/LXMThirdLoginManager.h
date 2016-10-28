@@ -55,9 +55,6 @@
 
 - (BOOL)handleOpenUrl:(NSURL *)url;
 
-/**
- *  简单的网络请求方法，调用第三方api可能会用到
- */
-+ (void)simpleGet:(NSString *)url completedBlock:(void(^)(id response, NSError *error))completedBlcok;
+
 
 @end
