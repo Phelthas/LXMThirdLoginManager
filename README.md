@@ -19,7 +19,7 @@ QQSDK   V2.9.0
 ## Install  
 1, add the LXMThirdLoginManager pod to your Podfile    
 
-    pod 'LXMThirdLoginManager', '~> 1.2.0'   
+    pod 'LXMThirdLoginManager', '~> 2.0.0'   
     
 2, run ` pod install `      
 
@@ -39,9 +39,12 @@ QQSDK   V2.9.0
 
       - (void)requestLoginWithThirdType:(LXMThirdLoginType)thirdLoginType completeBlock:(LXMThirdLoginCompleteBlock)completeBlock;    
     
+        
     
-    
-## 帮助
+## Update
+2.0.0，更新API命名，更新代码结构和实现方式，加入分享结果的回调
+
+## Help
 如果有什么问题，欢迎issue和pullRequest  
 
 ## License
