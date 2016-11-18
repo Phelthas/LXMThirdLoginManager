@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "LXMThirdLoginManager"
-  s.version      = "2.0.0"
+  s.version      = "2.0.1"
   s.summary      = "两行代码集成第三方登录."
 
   s.description  = <<-DESC
@@ -41,7 +41,7 @@ Pod::Spec.new do |s|
   # s.ios.deployment_target = "5.0"
   # s.osx.deployment_target = "10.7"
 
-  s.source       = { :git => "https://github.com/Phelthas/LXMThirdLoginManager.git", :tag => "2.0.0" }
+  s.source       = { :git => "https://github.com/Phelthas/LXMThirdLoginManager.git", :tag => "2.0.1" }
 
   s.source_files  = "LXMThirdLoginManager", "LXMThirdLoginManager/**/*.{h,m}"
   #  s.exclude_files = "Classes/Exclude"
