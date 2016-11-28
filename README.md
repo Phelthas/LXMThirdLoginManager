@@ -19,9 +19,9 @@ QQSDK   V2.9.0
 ## Install  
 1, add the LXMThirdLoginManager pod to your Podfile    
 
-    pod 'LXMThirdLoginManager', '~> 2.0.0'   
+    pod 'LXMThirdLoginManager', '~> 2.0.1'   
     
-2, run ` pod install `      
+2, run ` pod install `     or `pod update`     
 
 
 ## How to use
@@ -41,7 +41,8 @@ QQSDK   V2.9.0
     
         
     
-## Update
+## Update 
+2.0.1，删除qqSDK资源文件里面的info.plist文件，解决上传appstore失败的问题      
 2.0.0，更新API命名，更新代码结构和实现方式，加入分享结果的回调
 
 ## Help
