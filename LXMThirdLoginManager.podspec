@@ -58,7 +58,7 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-  s.resources = "LXMThirdLoginManager/**/*.{bundle}"
+  s.resources = "LXMThirdLoginManager/**/*.{bundle}”, "LXMThirdLoginManager/**/*.{framework}"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
