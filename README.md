@@ -15,8 +15,9 @@ QQSDK   V2.9.0
 3，微信现在默认的Appid没有登录权限，请自己找一个可用的appId和appSecret测试     
 4，qqSDK要求工程设置一个 bundleDisplayName
 
+[这里](http://www.cnblogs.com/Phelthas/p/4505108.html)有一篇总结。
 
-## Install  
+## Install  
 1, add the LXMThirdLoginManager pod to your Podfile    
 
     pod 'LXMThirdLoginManager', '~> 2.0.1'   
