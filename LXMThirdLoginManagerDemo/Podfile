@@ -2,7 +2,7 @@ platform :ios, '7.0'
 
 target 'LXMThirdLoginManagerDemo' do
 
-pod 'LXMThirdLoginManager', :git => 'https://github.com/Phelthas/LXMThirdLoginManager'
+pod 'LXMThirdLoginManager', :path => '~/Documents/LXMGitHub/LXMThirdLoginManager' #:git => 'https://github.com/Phelthas/LXMThirdLoginManager'
 
 end
 
