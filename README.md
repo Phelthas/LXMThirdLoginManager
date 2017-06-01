@@ -6,8 +6,8 @@ LXMThirdLoginManager使用cocoapods完成第三方SDK对各种依赖库的配置
 
 目前使用SDK：    
 新浪微博SDK V3.1.4  
-QQSDK   V2.9.0    
-微信SDK V1.7.3
+QQSDK   V3.2.1    
+微信SDK V1.7.7
 
 注意：   
 1，demo中的工程需要 pod install之后才能运行，     
@@ -43,7 +43,8 @@ QQSDK   V2.9.0
         
     
 ## Update 
-2.0.1，删除qqSDK资源文件里面的info.plist文件，解决上传appstore失败的问题      
+2.1.0  更新SDK文件QQ改用3.2.1;微信改用1.7.7    
+2.0.1，删除qqSDK资源文件里面的info.plist文件，解决上传appstore失败的问题    
 2.0.0，更新API命名，更新代码结构和实现方式，加入分享结果的回调
 
 ## Help
