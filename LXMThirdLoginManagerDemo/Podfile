@@ -4,5 +4,7 @@ target 'LXMThirdLoginManagerDemo' do
 
 pod 'LXMThirdLoginManager', :path => '~/Documents/LXMGitHub/LXMThirdLoginManager' #:git => 'https://github.com/Phelthas/LXMThirdLoginManager'
 
+pod 'LXMThirdLoginManager/SwiftSetting', :path => '~/Documents/LXMGitHub/LXMThirdLoginManager' #:git => 'https://github.com/Phelthas/LXMThirdLoginManager'
+
 end
 
