@@ -28,7 +28,7 @@
  拖进去代码就可以用，只需要在桥接头文件中加入`#import "LXMThirdLoginManager.h"`一句而已
  问题是怎么省去设置依赖库的麻烦，这个还是得依靠cocoapods：
  用s.frameworks 和 s.libraries 等参数设置，
- 这里关键是setting.user_target_xcconfig = { 'OTHER_LDFLAGS' => '-l"c++" -framework "ImageIO"' }这一句
+ 这里关键是setting.user_target_xcconfig = { 'OTHER_LDFLAGS' => '-l"stdc++" -l"sqlite3" -l"iconv" -l"c++" -l"sqlite3.0" -l"z" -framework "CoreGraphics" -framework "CoreText" -framework "CoreTelephony" -framework "Security" -framework "ImageIO" -framework "QuartzCore" -framework "SystemConfiguration" ' }这一句
  user_target_xcconfig参数的意思是，这个config生效的范围是用户的整个target，而不仅仅是pod的target
  具体见https://guides.cocoapods.org/syntax/podspec.html#user_target_xcconfig
  官方文档的说法是这个参数可能会污染项目工程或者可能会导致冲突，所以不推荐使用，

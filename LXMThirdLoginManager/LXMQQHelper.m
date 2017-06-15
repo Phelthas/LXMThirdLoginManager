@@ -7,9 +7,9 @@
 //
 
 #import "LXMQQHelper.h"
-#import <TencentOAuth.h>
-#import <TencentApiInterface.h>
-#import <QQApiInterface.h>
+#import <TencentOpenAPI/TencentOAuth.h>
+#import <TencentOpenAPI/TencentApiInterface.h>
+#import <TencentOpenAPI/QQApiInterface.h>
 #import "LXMThirdLoginManager.h"
 
 @interface LXMQQHelper ()<TencentSessionDelegate, QQApiInterfaceDelegate>

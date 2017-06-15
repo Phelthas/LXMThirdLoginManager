@@ -7,9 +7,9 @@
 //
 
 #import "LXMThirdShareObject.h"
-#import <TencentOAuth.h>
-#import <TencentApiInterface.h>
-#import <QQApiInterfaceObject.h>
+#import <TencentOpenAPI/TencentOAuth.h>
+#import <TencentOpenAPI/TencentApiInterface.h>
+#import <TencentOpenAPI/QQApiInterfaceObject.h>
 #import "WXApi.h"
 #import "WeiboSDK.h"
 

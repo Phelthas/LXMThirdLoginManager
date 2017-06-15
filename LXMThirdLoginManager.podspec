@@ -50,9 +50,10 @@ Pod::Spec.new do |s|
 
     s.subspec 'SwiftSetting' do |setting|
         setting.source_files = "ReadMe/*.{h,m}"
-        setting.frameworks = "UIKit", "Foundation"
+        setting.frameworks = "Foundation", "UIKit", "CoreGraphics", "CoreText", "CoreTelephony", "Security", "ImageIO", "QuartzCore", "SystemConfiguration"
         setting.libraries = "stdc++", "sqlite3", "iconv", "c++", "sqlite3.0", "z"
-        setting.user_target_xcconfig = { 'OTHER_LDFLAGS' => '-l"c++" -framework "ImageIO"' }
+        setting.user_target_xcconfig = { 'OTHER_LDFLAGS' => '-l"stdc++" -l"sqlite3" -l"iconv" -l"c++" -l"sqlite3.0" -l"z" -framework "CoreGraphics" -framework "CoreText" -framework "CoreTelephony" -framework "Security" -framework "ImageIO" -framework "QuartzCore" -framework "SystemConfiguration" ' }
+
     end
 
 end
