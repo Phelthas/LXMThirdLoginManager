@@ -18,12 +18,10 @@ QQSDK   V3.2.1
 [这里](http://www.cnblogs.com/Phelthas/p/4505108.html)有一篇总结。
 
 ## Install  
-1, add the LXMThirdLoginManager pod to your Podfile    
-
-    pod 'LXMThirdLoginManager', '~> 2.0.1'   
-    
-2, run ` pod install `     or `pod update`     
-
+1,在没有使用 `use_framework!`命令的项目中使用
+  在Podfile中加入 `pod 'LXMThirdLoginManager', ~> '2.2.0'`, 然后 `pod update`或 `pod install`    
+2, 在使用了`use_framework!`命令的项目中使用（Swift项目）    
+  手动下载2.2.0版本以上代码，将LXMThirdLoginManager文件夹下全部内容拖到项目中，然后在Podfile中加入 `pod 'LXMThirdLoginManager/SwiftSetting', ~> '2.2.0'`, 最后 `pod update`或 `pod install`    
 
 ## How to use
 1，在appDelegate的 didLaunch方法中调用    
@@ -43,6 +41,7 @@ QQSDK   V3.2.1
         
     
 ## Update 
+2.2.0  将库分为Core和SwiftSetting两个subspec，Core用法和原来完全一样；SwiftSetting用来解决Swift工程使用的问题    
 2.1.0  更新SDK文件QQ改用3.2.1;微信改用1.7.7    
 2.0.1，删除qqSDK资源文件里面的info.plist文件，解决上传appstore失败的问题    
 2.0.0，更新API命名，更新代码结构和实现方式，加入分享结果的回调
