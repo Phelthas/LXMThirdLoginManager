@@ -42,7 +42,7 @@ Pod::Spec.new do |s|
 
     s.subspec 'Core' do |core|
         core.source_files = "LXMThirdLoginManager", "LXMThirdLoginManager/**/*.{h,m}"
-        core.frameworks = "Foundation", "UIKit", "CoreGraphics", "CoreText", "CoreTelephony", "Security", "ImageIO", "QuartzCore", "SystemConfiguration"
+        core.frameworks = "Photos", "Foundation", "UIKit", "CoreGraphics", "CoreText", "CoreTelephony", "Security", "ImageIO", "QuartzCore", "SystemConfiguration"
         core.libraries = "stdc++", "sqlite3", "iconv", "c++", "sqlite3.0", "z"
         core.vendored_libraries = "LXMThirdLoginManager/**/*.{a}"
         core.vendored_frameworks = "LXMThirdLoginManager/**/*.{framework}"
