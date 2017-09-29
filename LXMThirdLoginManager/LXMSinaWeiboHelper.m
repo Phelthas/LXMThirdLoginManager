@@ -72,7 +72,7 @@
             NSDictionary *dict = (NSDictionary *)response;
             result.userName = dict[@"name"];
             result.signature = dict[@"description"];
-            result.avatarUrl = dict[@"avatar_large"];
+            result.avatarUrl = dict[@"avatar_large"];//"profile_image_url"返回的图片太小了，用这个
             
             result.errorCode = [dict[@"error_code"] integerValue];//错误时才有
             result.message = dict[@"error"];//错误时才有
