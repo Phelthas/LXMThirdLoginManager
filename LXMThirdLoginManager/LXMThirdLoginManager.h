@@ -12,9 +12,9 @@
 
 /*
  当前SDK版本：
- 微博3.1.4
- 微信1.7.3
- QQ2.9.0
+ 微博3.2.3
+ 微信1.8.0包含支付功能版
+ QQ3.3.0lite版
  */
 
 @interface LXMThirdLoginManager : NSObject

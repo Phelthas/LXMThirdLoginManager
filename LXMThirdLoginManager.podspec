@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "LXMThirdLoginManager"
-  s.version      = "2.2.0"
+  s.version      = "2.3.0"
   s.summary      = "两行代码集成第三方登录."
   s.description  = <<-DESC
 		利用cocoaPods完成集成第三方登录的配置，就是添加各种依赖库和linkFlag，使集成第三方登录变成一两句代码的事。
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
   s.author             = { "Phelthas" => "billthas@gmail.com" }
   s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/Phelthas/LXMThirdLoginManager.git", :tag => "2.2.0" }
+  s.source       = { :git => "https://github.com/Phelthas/LXMThirdLoginManager.git", :tag => "2.3.0" }
   #  s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
@@ -50,7 +50,7 @@ Pod::Spec.new do |s|
 
     s.subspec 'SwiftSetting' do |setting|
         setting.source_files = "ReadMe/*.{h,m}"
-        setting.frameworks = "Foundation", "UIKit", "CoreGraphics", "CoreText", "CoreTelephony", "Security", "ImageIO", "QuartzCore", "SystemConfiguration"
+        setting.frameworks = "Photos", "Foundation", "UIKit", "CoreGraphics", "CoreText", "CoreTelephony", "Security", "ImageIO", "QuartzCore", "SystemConfiguration"
         setting.libraries = "stdc++", "sqlite3", "iconv", "c++", "sqlite3.0", "z"
         setting.user_target_xcconfig = { 'OTHER_LDFLAGS' => '-l"stdc++" -l"sqlite3" -l"iconv" -l"c++" -l"sqlite3.0" -l"z" -framework "CoreGraphics" -framework "CoreText" -framework "CoreTelephony" -framework "Security" -framework "ImageIO" -framework "QuartzCore" -framework "SystemConfiguration" ' }
 
