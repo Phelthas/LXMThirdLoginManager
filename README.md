@@ -5,9 +5,9 @@ LXMThirdLoginManager 是用来一键集成第三方登录的，目前支持新�
 LXMThirdLoginManager使用cocoapods完成第三方SDK对各种依赖库的配置，封装登录方法和返回结果，并提供是否去调用第三方API去获取userInfo的属性，所以用的时候只需要两行代码就可以完成集成    
 
 目前使用SDK：    
-新浪微博SDK V3.1.4  
-QQSDK   V3.2.1    
-微信SDK V1.7.7
+微博3.2.3    
+微信1.8.0包含支付功能版    
+QQ3.3.0lite版    
 
 注意：   
 1，demo中的工程需要 pod install之后才能运行，     
@@ -19,9 +19,11 @@ QQSDK   V3.2.1
 
 ## Install  
 1,在没有使用 `use_framework!`命令的项目中使用
-  在Podfile中加入 `pod 'LXMThirdLoginManager', ~> '2.2.0'`, 然后 `pod update`或 `pod install`    
+  在Podfile中加入 `pod 'LXMThirdLoginManager', ~> '2.3.0'`, 然后 `pod update`或 `pod install`    
 2, 在使用了`use_framework!`命令的项目中使用（Swift项目）    
-  手动下载2.2.0版本以上代码，将LXMThirdLoginManager文件夹下全部内容拖到项目中，然后在Podfile中加入 `pod 'LXMThirdLoginManager/SwiftSetting', ~> '2.2.0'`, 最后 `pod update`或 `pod install`    
+  手动下载2.3.0版本以上代码，将LXMThirdLoginManager文件夹下全部内容拖到项目中，然后在Podfile中加入 `pod 'LXMThirdLoginManager/SwiftSetting', ~> '2.3.0'`, 最后 `pod update`或 `pod install`    
+ 
+**注意：貌似Xcode9直接把文件夹拖入工程时，不会默认把文件添加到工程中，需要手动在Target MemberShip处给m文件或者.a文件.framework文件打钩！！！否则就会出现“unDefined symbol for xxx”等链接错误。务必注意**
 
 ## How to use
 1，在appDelegate的 didLaunch方法中调用    
@@ -41,10 +43,11 @@ QQSDK   V3.2.1
         
     
 ## Update 
+2.3.0  更新SDK版本，微博3.2.3    微信1.8.0包含支付功能版    QQ3.3.0lite版    
 2.2.0  将库分为Core和SwiftSetting两个subspec，Core用法和原来完全一样；SwiftSetting用来解决Swift工程使用的问题    
 2.1.0  更新SDK文件QQ改用3.2.1;微信改用1.7.7    
 2.0.1，删除qqSDK资源文件里面的info.plist文件，解决上传appstore失败的问题    
-2.0.0，更新API命名，更新代码结构和实现方式，加入分享结果的回调
+2.0.0，更新API命名，更新代码结构和实现方式，加入分享结果的回调    
 
 ## Help
 如果有什么问题，欢迎issue和pullRequest  
