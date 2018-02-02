@@ -86,15 +86,16 @@
 }
 
 - (BOOL)handleOpenUrl:(NSURL *)url {
-    if ([url.scheme hasSuffix:self.kSinaWeiboAppKey]) {
-        return [self.sinaWeiboHelper handleOpenUrl:url];
-    } else if ([url.scheme hasSuffix:self.kWeChatAppKey]) {
-        return [self.weChatHelper handleOpenUrl:url];
-    } else if ([url.scheme hasSuffix:self.kQQAppKey]) {
-        return [self.qqHelper handleOpenUrl:url];
-    } else {
-        return NO;
+    if (url) {
+        if (self.kSinaWeiboAppKey && [url.scheme hasSuffix:self.kSinaWeiboAppKey]) {
+            return [self.sinaWeiboHelper handleOpenUrl:url];
+        } else if (self.kWeChatAppKey && [url.scheme hasSuffix:self.kWeChatAppKey]) {
+            return [self.weChatHelper handleOpenUrl:url];
+        } else if (self.kQQAppKey && [url.scheme hasSuffix:self.kQQAppKey]) {
+            return [self.qqHelper handleOpenUrl:url];
+        }
     }
+    return NO;
 }
 
 #pragma mark - 检查是否安装

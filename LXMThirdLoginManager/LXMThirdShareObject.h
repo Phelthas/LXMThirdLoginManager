@@ -18,7 +18,7 @@
 //};
 
 @class LXMThirdShareResult;
-typedef void(^LXMThirdShareCompletionBlock)(LXMThirdShareResult *shareResult);
+typedef void(^LXMThirdShareCompletionBlock)(LXMThirdShareResult * _Nullable shareResult);
 
 
 
@@ -28,13 +28,13 @@ typedef void(^LXMThirdShareCompletionBlock)(LXMThirdShareResult *shareResult);
 @interface LXMThirdShareResult : NSObject
 
 @property (nonatomic, assign) BOOL success;//统一以后的分享记过，yes为成功，其他为失败
-@property (nonatomic, copy) NSString *message;//统一以后的错误提示信息，失败时存在，失败时也可能为nil
+@property (nonatomic, copy, nullable) NSString *message;//统一以后的错误提示信息，失败时存在，失败时也可能为nil
 @property (nonatomic, assign) LXMThirdLoginType shareType;//这里貌似区分不出来是朋友圈还是会话，所以暂时用app来区分
 
 /**
  第三方分享返回的结果，可能是SendMessageToWXResp，SendMessageToQQResp，WBSendMessageToWeiboResponse
  */
-@property (nonatomic, strong) id responseObject;
+@property (nonatomic, strong, nullable) id responseObject;
 
 @end
 
