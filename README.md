@@ -5,9 +5,15 @@ LXMThirdLoginManager 是用来一键集成第三方登录的，目前支持新�
 LXMThirdLoginManager使用cocoapods完成第三方SDK对各种依赖库的配置，封装登录方法和返回结果，并提供是否去调用第三方API去获取userInfo的属性，所以用的时候只需要两行代码就可以完成集成    
 
 目前使用SDK：    
-微博3.2.3    
-微信1.8.0包含支付功能版    
-QQ3.3.0lite版    
+微博3.2.3  
+
+微信1.8.2包含支付功能版       
+
+QQ3.3.1lite版        
+
+
+现在QQ也已经不支持用网页登陆了，如果没有安装QQ，会跳转到提示安装最新版QQ的网页，网上看到这是从2018年1月31号开始的。。。反正我自己测试已经不行了；    
+如果有知道详细情况或者文档什么的，望告知~
 
 注意：   
 1，demo中的工程需要 pod install之后才能运行，     
@@ -43,8 +49,9 @@ QQ3.3.0lite版
         
     
 ## Update 
-2.3.0  更新SDK版本，微博3.2.3    微信1.8.0包含支付功能版    QQ3.3.0lite版    
-2.2.0  将库分为Core和SwiftSetting两个subspec，Core用法和原来完全一样；SwiftSetting用来解决Swift工程使用的问题    
+2.4.0  更新SDK版本，微信1.8.2包含支付版，QQ3.3.1lite版    
+2.3.0  更新SDK版本，微博3.2.3    微信1.8.0包含支付功能版    QQ3.3.0lite版    
+2.2.0  将库分为Core和SwiftSetting两个subspec，Core用法和原来完全一样；SwiftSetting用来解决Swift工程使用的问题    
 2.1.0  更新SDK文件QQ改用3.2.1;微信改用1.7.7    
 2.0.1，删除qqSDK资源文件里面的info.plist文件，解决上传appstore失败的问题    
 2.0.0，更新API命名，更新代码结构和实现方式，加入分享结果的回调    
